@@ -10,7 +10,7 @@ use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
 
-class YahiyaController extends Controller
+class HomeController extends Controller
 {
     /**
      * {@inheritdoc}
