@@ -70,13 +70,13 @@ use yii\helpers\Html;
                     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <?= Html::img('../assets/images/image-gallery/7.jpg', ['class' => 'd-block w-100', 'alt' => 'First slide']) ?>
+                                <?= Html::img('/theme-assets/images/image-gallery/7.jpg', ['class' => 'd-block w-100', 'alt' => 'First slide']) ?>
                             </div>
                             <div class="carousel-item">
-                                <?= Html::img('../assets/images/image-gallery/8.jpg', ['class' => 'd-block w-100', 'alt' => 'Second slide']) ?>
+                                <?= Html::img('/theme-assets/images/image-gallery/8.jpg', ['class' => 'd-block w-100', 'alt' => 'Second slide']) ?>
                             </div>
                             <div class="carousel-item">
-                                <?= Html::img('../assets/images/image-gallery/9.jpg', ['class' => 'd-block w-100', 'alt' => 'Third slide']) ?>
+                                <?= Html::img('/theme-assets/images/image-gallery/9.jpg', ['class' => 'd-block w-100', 'alt' => 'Third slide']) ?>
                             </div>
                         </div>
                         <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">

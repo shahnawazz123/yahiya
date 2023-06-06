@@ -6,7 +6,7 @@ use yii\helpers\Html;
 <div id="left-sidebar" class="sidebar">
     <div class="navbar-brand">
         <a href="index.html">
-            <?= Html::img('../assets/images/icon.svg', ['class' => 'img-fluid logo', 'alt' => 'Osam Logo']) ?>
+            <?= Html::img('/theme-assets/images/icon.svg', ['class' => 'img-fluid logo', 'alt' => 'Osam Logo']) ?>
             <span>Osam</span>
         </a>
         <button type="button" class="btn-toggle-offcanvas btn btn-sm float-right">
@@ -16,7 +16,7 @@ use yii\helpers\Html;
     <div class="sidebar-scroll">
         <div class="user-account">
             <div class="user_div">
-                <?= Html::img('../assets/images/user.png', ['class' => 'user-photo', 'alt' => 'User Profile Picture']) ?>
+                <?= Html::img('/theme-assets/images/user.png', ['class' => 'user-photo', 'alt' => 'User Profile Picture']) ?>
             </div>
             <div class="dropdown">
                 <span>Welcome,</span>
@@ -42,11 +42,11 @@ use yii\helpers\Html;
                         <span>Dashboard</span>
                     </a>
                     <ul>
-                        <li><a href="../dark/index.html">Dark Version</a></li>
+                        <li><a href="/theme-dark/index.html">Dark Version</a></li>
                         <li class="active"><a href="index.html">Light Version</a></li>
-                        <li><a href="../fluid/index.html">Fluid Version</a></li>
-                        <li><a href="../light/index.html">H-Menu Version</a></li>
-                        <li><a href="../landing/index.html">Landing Page</a></li>
+                        <li><a href="/theme-fluid/index.html">Fluid Version</a></li>
+                        <li><a href="/theme-light/index.html">H-Menu Version</a></li>
+                        <li><a href="/theme-landing/index.html">Landing Page</a></li>
                     </ul>
                 </li>
                 <li class="header">App</li>

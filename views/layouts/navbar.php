@@ -8,7 +8,7 @@ use yii\helpers\Html;
 
         <div class="navbar-left">
             <div class="navbar-btn">
-                <?= Html::a(Html::img(Yii::getAlias('@web') . '/assets/images/icon.svg', ['alt' => 'Osam Logo', 'class' => 'img-fluid logo']), ['index.html']) ?>
+                <?= Html::a(Html::img('/theme-assets/images/icon.svg', ['alt' => 'Osam Logo', 'class' => 'img-fluid logo']), ['index.html']) ?>
                 <button type="button" class="btn-toggle-offcanvas"><i class="lnr lnr-menu fa fa-bars"></i></button>
             </div>
             <?= Html::beginForm([''], 'get', ['id' => 'navbar-search', 'class' => 'navbar-form search-form']) ?>
@@ -33,7 +33,7 @@ use yii\helpers\Html;
                             <li>
                                 <a href="javascript:void(0);">
                                     <div class="media">
-                                        <?= Html::img(Yii::getAlias('@web') . '/assets/images/xs/avatar4.jpg', ['class' => 'media-object', 'alt' => '']) ?>
+                                        <?= Html::img('/theme-assets/images/xs/avatar4.jpg', ['class' => 'media-object', 'alt' => '']) ?>
                                         <div class="media-body">
                                             <span class="name">James Wert <small class="float-right">Just now</small></span>
                                             <span class="message">Update GitHub</span>
@@ -44,7 +44,7 @@ use yii\helpers\Html;
                             <li>
                                 <a href="javascript:void(0);">
                                     <div class="media">
-                                        <?= Html::img(Yii::getAlias('@web') . '/assets/images/xs/avatar1.jpg', ['class' => 'media-object', 'alt' => '']) ?>
+                                        <?= Html::img('/theme-assets/images/xs/avatar1.jpg', ['class' => 'media-object', 'alt' => '']) ?>
                                         <div class="media-body">
                                             <span class="name">Folisise Chosielie <small class="float-right">12min ago</small></span>
                                             <span class="message">New Messages</span>
@@ -55,7 +55,7 @@ use yii\helpers\Html;
                             <li>
                                 <a href="javascript:void(0);">
                                     <div class="media">
-                                        <?= Html::img(Yii::getAlias('@web') . '/assets/images/xs/avatar5.jpg', ['class' => 'media-object', 'alt' => '']) ?>
+                                        <?= Html::img('/theme-assets/images/xs/avatar5.jpg', ['class' => 'media-object', 'alt' => '']) ?>
                                         <div class="media-body">
                                             <span class="name">Louis Henry <small class="float-right">38min ago</small></span>
                                             <span class="message">Design bug fix</span>
@@ -66,7 +66,7 @@ use yii\helpers\Html;
                             <li>
                                 <a href="javascript:void(0);">
                                     <div class="media mb-0">
-                                        <?= Html::img(Yii::getAlias('@web') . '/assets/images/xs/avatar2.jpg', ['class' => 'media-object', 'alt' => '']) ?>
+                                        <?= Html::img('/theme-assets/images/xs/avatar2.jpg', ['class' => 'media-object', 'alt' => '']) ?>
                                         <div class="media-body">
                                             <span class="name">Debra Stewart <small class="float-right">2hr ago</small></span>
                                             <span class="message">Fix Bug</span>

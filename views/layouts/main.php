@@ -1,5 +1,5 @@
 <?php
-//use yii\web\View;
+use yii\web\View;
 use app\assets\ThemeAsset;
 use app\widgets\Alert;
 //use yii\bootstrap5\Html;
@@ -26,7 +26,7 @@ $this->registerMetaTag(['name' => 'author', 'content' => 'Yahiya, design by: sha
   <!-- Page Loader -->
     <div class="page-loader-wrapper">
         <div class="loader">
-            <div class="m-t-30"><?= Html::img(Yii::getAlias('@webroot') . '/theme/assets/images/icon.svg', ['width' => 40, 'height' => 40, 'alt' => 'Yahiya']) ?></div>
+            <div class="m-t-30"><?= Html::img('/theme-assets/images/icon.svg', ['width' => 40, 'height' => 40, 'alt' => 'Yahiya']) ?></div>
             <p>Please wait...</p>
         </div>
     </div>

@@ -168,7 +168,7 @@ $this->title = 'Osam | Home';
                     <li class="online">
                         <a href="javascript:void(0);">
                             <div class="media">
-                                <img class="media-object " src="<?= Yii::getAlias('@web');?>theme/assets/imagesimages/xs/avatar4.jpg" alt="">
+                                <?= Html::img('/theme-assets/images/xs/avatar4.jpg', ['class' => 'media-object' ,'width' => 40, 'height' => 40, 'alt' => 'avatar4']) ?>
                                 <div class="media-body">
                                     <span class="name">@MelissaMcCoy</span>
                                     <span class="message">Designer, Blogger</span>
@@ -181,7 +181,7 @@ $this->title = 'Osam | Home';
                     <li class="online">
                         <a href="javascript:void(0);">
                             <div class="media">
-                                <img class="media-object " src="<?= Yii::getAlias('@webroot');?>theme/assets/imagesimages/xs/avatar5.jpg" alt="">
+                                <img class="media-object " src="theme-assets/images/xs/avatar5.jpg" alt="">
                                 <div class="media-body">
                                     <span class="name">@Joge Lucky</span>
                                     <span class="message">Java Developer</span>
@@ -194,7 +194,7 @@ $this->title = 'Osam | Home';
                     <li class="offline">
                         <a href="javascript:void(0);">
                             <div class="media">
-                                <img class="media-object " src="<?= Yii::getAlias('@webroot');?>/theme/assets/images/xs/avatar2.jpg" alt="">
+                                <img class="media-object " src="/theme-assets/images/xs/avatar2.jpg" alt="">
                                 <div class="media-body">
                                     <span class="name">@JuanMartinez</span>
                                     <span class="message">CEO, puffintheme</span>
@@ -207,7 +207,7 @@ $this->title = 'Osam | Home';
                     <li class="offline">
                         <a href="javascript:void(0);">
                             <div class="media">
-                                <img class="media-object " src="<?= Yii::getAlias('@webroot');?>/theme/assets/images/xs/avatar1.jpg" alt="">
+                                <img class="media-object " src="/theme-assets/images/xs/avatar1.jpg" alt="">
                                 <div class="media-body">
                                     <span class="name">@Folisise Chosielie</span>
                                     <span class="message">Art director, Movie Cut</span>
@@ -220,7 +220,7 @@ $this->title = 'Osam | Home';
                     <li class="online">
                         <a href="javascript:void(0);">
                             <div class="media">
-                                <img class="media-object " src="/theme/assets/images/xs/avatar3.jpg" alt="">
+                                <img class="media-object " src="theme-assets/images/xs/avatar3.jpg" alt="">
                                 <div class="media-body">
                                     <span class="name">@LouisHenry</span>
                                     <span class="message">Writter, Mag Editor</span>
@@ -233,7 +233,7 @@ $this->title = 'Osam | Home';
                     <li class="offline">
                         <a href="javascript:void(0);">
                             <div class="media">
-                                <img class="media-object " src="<?= Yii::getAlias('@webroot');?>/theme/assets/images/xs/avatar10.jpg" alt="">
+                                <img class="media-object " src="/theme-assets/images/xs/avatar10.jpg" alt="">
                                 <div class="media-body">
                                     <span class="name">@Folisise Chosielie</span>
                                     <span class="message">Art director, Movie Cut</span>
