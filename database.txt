@@ -1,4 +1,4 @@
-Sure! Here's a general database schema for an e-commerce system with some common tables and attributes:
+database schema for an yahiya-footware system with some common tables and attributes:
 
 1. Table: `Users`
    - `id` (Primary key)
