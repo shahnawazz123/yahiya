@@ -11,8 +11,8 @@ $this->registerMetaTag(['charset' => 'utf-8']);
 $this->registerMetaTag(['http-equiv' => 'X-UA-Compatible', 'content' => 'IE=edge, chrome=1']);
 $this->registerMetaTag(['name' => 'viewport', 'content' => 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0']);
 $this->registerMetaTag(['name' => 'description', 'content' => 'Yahiya']);
-$this->registerMetaTag(['name' => 'author', 'content' => 'Yahiya, design by: shahnawaz.khan@synradar.com']);
-
+$this->registerMetaTag(['name' => 'author', 'content' => 'Yahiya, design by: shahnawazz123@gmail.com']);
+$this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => '/theme-assets/images/icon.svg']);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
