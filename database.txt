@@ -1,0 +1,46 @@
+Sure! Here's a general database schema for an e-commerce system with some common tables and attributes:
+
+1. Table: `Users`
+   - `id` (Primary key)
+   - `username`
+   - `email`
+   - `password`
+   - `first_name`
+   - `last_name`
+   - Other user-related attributes (e.g., address, phone number)
+
+2. Table: `Products`
+   - `id` (Primary key)
+   - `name`
+   - `description`
+   - `price`
+   - `image_url`
+   - Other product-related attributes (e.g., category, brand, quantity)
+
+3. Table: `Categories`
+   - `id` (Primary key)
+   - `name`
+   - `description`
+
+4. Table: `Orders`
+   - `id` (Primary key)
+   - `user_id` (Foreign key referencing the `Users` table)
+   - `order_date`
+   - `total_amount`
+   - `status` (e.g., pending, processing, completed)
+
+5. Table: `Order_Items`
+   - `id` (Primary key)
+   - `order_id` (Foreign key referencing the `Orders` table)
+   - `product_id` (Foreign key referencing the `Products` table)
+   - `quantity`
+   - `unit_price`
+
+6. Table: `Reviews`
+   - `id` (Primary key)
+   - `product_id` (Foreign key referencing the `Products` table)
+   - `user_id` (Foreign key referencing the `Users` table)
+   - `rating`
+   - `comment`
+
+These are just some of the common tables and attributes you may find in an e-commerce database schema. Depending on your specific requirements, you might need additional tables or attributes to handle features like payment methods, shipping information, promotions, etc.
