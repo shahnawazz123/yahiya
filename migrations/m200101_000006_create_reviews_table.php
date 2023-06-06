@@ -5,7 +5,7 @@ use yii\db\Migration;
 /**
  * Handles the creation of table `{{%reviews}}`.
  */
-class m200101_000005_create_reviews_table extends Migration
+class m200101_000006_create_reviews_table extends Migration
 {
     /**
      * {@inheritdoc}
