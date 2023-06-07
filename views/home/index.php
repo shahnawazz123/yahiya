@@ -9,15 +9,7 @@ $this->title = 'Yahiya | Home';
 
 <div class="block-header">
     <div class="row clearfix">
-        <div class="col-md-6 col-sm-12">
-            <h1>Yahiya Footwear</h1>
-        </div>            
-        <div class="col-md-6 col-sm-12 text-right">
-            <div class="inlineblock vivify swoopInTop delay-900 mr-4">Visitors <span id="mini-bar-chart1" class="mini-bar-chart"></span></div>
-            <div class="inlineblock vivify swoopInTop delay-950 mr-4">Visits <span id="mini-bar-chart2" class="mini-bar-chart"></span></div>
-            <div class="inlineblock vivify swoopInTop delay-1000">Chats <span id="mini-bar-chart3" class="mini-bar-chart"></span></div>
-        </div>
-        <div class="container-fluid col-lg-6 col-md-6 col-sm-12">
+        <div class="col-sm-12">
             <?php 
                 echo Carousel::widget([
                     'id' => 'yahiyaFootwearBanner',
@@ -27,15 +19,15 @@ $this->title = 'Yahiya | Home';
                     ],
                     'items' => [
                         [
-                            'content' => Html::img('/theme-assets/images/image-gallery/7.jpg', ['class' => 'd-block w-100', 'alt' => 'First slide']),
+                            'content' => Html::img('/images/banners/banner_1.jpg', ['class' => 'd-block w-100', 'alt' => 'First slide']),
                             'options' => ['class' => 'carousel-item active'],
                         ],
                         [
-                            'content' => Html::img('/theme-assets/images/image-gallery/8.jpg', ['class' => 'd-block w-100', 'alt' => 'Second slide']),
+                            'content' => Html::img('/images/banners/banner_2.jpg', ['class' => 'd-block w-100', 'alt' => 'Second slide']),
                             'options' => ['class' => 'carousel-item'],
                         ],
                         [
-                            'content' => Html::img('/theme-assets/images/image-gallery/9.jpg', ['class' => 'd-block w-100', 'alt' => 'Third slide']),
+                            'content' => Html::img('/images/banners/banner_3.jpg', ['class' => 'd-block w-100', 'alt' => 'Third slide']),
                             'options' => ['class' => 'carousel-item'],
                         ],
                     ],
@@ -56,7 +48,7 @@ $this->title = 'Yahiya | Home';
             <div class="card-group m-b-30">
                 <div class="card n_category">
                     <span class="sub_n_category bg-orange">Music</span>
-                    <img class="card-img-top" src="/theme-assets/images/news/news1.jpg" alt="Card image cap">
+                    <img class="card-img-top" src="https://cdn.shopify.com/s/files/1/0607/6678/1671/files/Homepage_Category_Motomania.jpg?v=1681452401" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title"><a href="#">The Madonna 80s Mastermix</a></h5>
                         <p class="card-text">This is a wider card with supporting This content is a little bit longer.</p>
@@ -67,7 +59,7 @@ $this->title = 'Yahiya | Home';
                 </div>
                 <div class="card n_category">
                     <span class="sub_n_category bg-red">Tops</span>
-                    <img class="card-img-top" src="/theme-assets/images/news/news2.jpg" alt="Card image cap">
+                    <img class="card-img-top" src="https://cdn.shopify.com/s/files/1/0607/6678/1671/files/Homepage_Category_CampusOGs.jpg?v=1681452551" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title"><a href="#">The story behind a giant ship</a></h5>
                         <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
@@ -78,7 +70,7 @@ $this->title = 'Yahiya | Home';
                 </div>
                 <div class="card n_category">
                     <span class="sub_n_category p_right bg-purple">Food</span>
-                    <img class="card-img-top" src="/theme-assets/images/news/news4.jpg" alt="Card image cap">
+                    <img class="card-img-top" src="https://cdn.shopify.com/s/files/1/0607/6678/1671/files/Homepage_Category_TIE-N-DYE.jpg?v=1681452799" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title"><a href="#">Ten films to watch in Sept...    </a></h5>
                         <p class="card-text">This is a wider card with supportin content than the first to show that equal height action.</p>
@@ -203,7 +195,7 @@ $this->title = 'Yahiya | Home';
                 </div>
                 <div class="card n_category">
                     <span class="sub_n_category bg-pink">Fashion</span>
-                    <img class="card-img-top" src="/theme-assets/images/news/news8.jpg" alt="Card image cap">
+                    <img class="card-img-top" src="https://cdn.shopify.com/s/files/1/0607/6678/1671/files/Homepage_Category-CLogs.jpg?v=1681452896" alt="Card image cap">
                     <div class="body">                            
                         <h5 class="mb-0 card-title"><a href="#">Some quick example text to build on the card title.</a></h5>
                         <small>Feb 22, 10:47 am</small>
