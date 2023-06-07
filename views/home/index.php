@@ -11,31 +11,7 @@ $this->title = 'Yahiya | Home';
     <div class="row clearfix">
         <div class="col-sm-12">
             <?php 
-                echo Carousel::widget([
-                    'id' => 'yahiyaFootwearBanner',
-                    'options' => [
-                        'class' => 'carousel slide',
-                        'data-ride' => 'carousel',
-                    ],
-                    'items' => [
-                        [
-                            'content' => Html::img('/images/banners/banner_1.jpg', ['class' => 'd-block w-100', 'alt' => 'First slide']),
-                            'options' => ['class' => 'carousel-item active'],
-                        ],
-                        [
-                            'content' => Html::img('/images/banners/banner_2.jpg', ['class' => 'd-block w-100', 'alt' => 'Second slide']),
-                            'options' => ['class' => 'carousel-item'],
-                        ],
-                        [
-                            'content' => Html::img('/images/banners/banner_3.jpg', ['class' => 'd-block w-100', 'alt' => 'Third slide']),
-                            'options' => ['class' => 'carousel-item'],
-                        ],
-                    ],
-                    'controls' => [
-                        '<span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="sr-only">Previous</span>',
-                        '<span class="carousel-control-next-icon" aria-hidden="true"></span><span class="sr-only">Next</span>',
-                    ],
-                ]);
+                echo \app\widgets\CarouselWidget::widget();
             ?>
         </div>
     </div>
