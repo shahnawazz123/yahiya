@@ -1,8 +1,6 @@
 <?php
 use yii\helpers\Html;
 use yii\helpers\Url;
-use yii\bootstrap4\Carousel;
-use yii\bootstrap4\CarouselItem;
 
 $this->title = 'Yahiya | Home';
 ?>
@@ -10,9 +8,7 @@ $this->title = 'Yahiya | Home';
 <div class="block-header">
     <div class="row clearfix">
         <div class="col-sm-12">
-            <?php 
-                echo \app\widgets\CarouselWidget::widget();
-            ?>
+            <?php echo \app\widgets\CarouselWidget::widget();?>
         </div>
     </div>
 </div>
@@ -24,7 +20,7 @@ $this->title = 'Yahiya | Home';
             <div class="card-group m-b-30">
                 <div class="card n_category">
                     <span class="sub_n_category bg-orange">Music</span>
-                    <img class="card-img-top" src="https://cdn.shopify.com/s/files/1/0607/6678/1671/files/Homepage_Category_Motomania.jpg?v=1681452401" alt="Card image cap">
+                    <img class="card-img-top" src="https://cdn.shopify.com/s/files/1/0607/6678/1671/files/Homepage_Category_Motomania.jpg?v=1681452401" alt="Motomania">
                     <div class="card-body">
                         <h5 class="card-title"><a href="#">The Madonna 80s Mastermix</a></h5>
                         <p class="card-text">This is a wider card with supporting This content is a little bit longer.</p>
