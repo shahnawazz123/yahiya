@@ -1,13 +1,13 @@
 <?php
 use yii\helpers\Html;
-
+use yii\helpers\Url;
 ?>
 
 <div id="left-sidebar" class="sidebar">
     <div class="navbar-brand">
-        <a href="index.html">
-            <?= Html::img('/theme-assets/images/icon.svg', ['class' => 'img-fluid logo', 'alt' => 'Osam Logo']) ?>
-            <span>Osam</span>
+        <a href="<?= Url::home();?>">
+            <?= Html::img('/theme-assets/images/icon.svg', ['class' => 'img-fluid logo', 'alt' => 'Yahiya Footwear Logo']) ?>
+            <span>Yahiya Footwear</span>
         </a>
         <button type="button" class="btn-toggle-offcanvas btn btn-sm float-right">
             <i class="lnr lnr-menu fa fa-chevron-circle-left"></i>
@@ -21,7 +21,7 @@ use yii\helpers\Html;
             <div class="dropdown">
                 <span>Welcome,</span>
                 <a href="javascript:void(0);" class="dropdown-toggle user-name" data-toggle="dropdown">
-                    <strong>Louis Pierce</strong>
+                    <strong>Shahnawaz Khan</strong>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-right account vivify flipInY">
                     <li><a href="page-profile.html"><i class="icon-user"></i>My Profile</a></li>
@@ -71,9 +71,7 @@ use yii\helpers\Html;
                 </li>
                 <li class="header">UI Elements</li>
                 <li>
-                    <a href="#ui
-
-Elements" class="has-arrow">
+                    <a href="#uiElements" class="has-arrow">
                         <i class="icon-diamond"></i>
                         <span>Components</span>
                     </a>
@@ -132,9 +130,7 @@ Elements" class="has-arrow">
                         <span>Charts</span>
                     </a>
                     <ul>
-                        <li><a href="
-
-chart-c3.html">C3 Charts</a></li>
+                        <li><a href="chart-c3.html">C3 Charts</a></li>
                         <li><a href="chart-morris.html">Morris</a></li>
                         <li><a href="chart-flot.html">Flot</a></li>
                         <li><a href="chart-chartjs.html">ChartJS</a></li>

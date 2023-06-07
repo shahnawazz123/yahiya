@@ -1,326 +1,239 @@
 <?php
 use yii\helpers\Html;
 use yii\helpers\Url;
+use yii\bootstrap4\Carousel;
+use yii\bootstrap4\CarouselItem;
 
-$this->title = 'Osam | Home';
+$this->title = 'Yahiya | Home';
 ?>
 
 <div class="block-header">
     <div class="row clearfix">
         <div class="col-md-6 col-sm-12">
-            <h1>Dashboard</h1>
+            <h1>Yahiya Footwear</h1>
         </div>            
         <div class="col-md-6 col-sm-12 text-right">
             <div class="inlineblock vivify swoopInTop delay-900 mr-4">Visitors <span id="mini-bar-chart1" class="mini-bar-chart"></span></div>
             <div class="inlineblock vivify swoopInTop delay-950 mr-4">Visits <span id="mini-bar-chart2" class="mini-bar-chart"></span></div>
             <div class="inlineblock vivify swoopInTop delay-1000">Chats <span id="mini-bar-chart3" class="mini-bar-chart"></span></div>
         </div>
+        <div class="container-fluid col-lg-6 col-md-6 col-sm-12">
+            <?php 
+                echo Carousel::widget([
+                    'id' => 'yahiyaFootwearBanner',
+                    'options' => [
+                        'class' => 'carousel slide',
+                        'data-ride' => 'carousel',
+                    ],
+                    'items' => [
+                        [
+                            'content' => Html::img('/theme-assets/images/image-gallery/7.jpg', ['class' => 'd-block w-100', 'alt' => 'First slide']),
+                            'options' => ['class' => 'carousel-item active'],
+                        ],
+                        [
+                            'content' => Html::img('/theme-assets/images/image-gallery/8.jpg', ['class' => 'd-block w-100', 'alt' => 'Second slide']),
+                            'options' => ['class' => 'carousel-item'],
+                        ],
+                        [
+                            'content' => Html::img('/theme-assets/images/image-gallery/9.jpg', ['class' => 'd-block w-100', 'alt' => 'Third slide']),
+                            'options' => ['class' => 'carousel-item'],
+                        ],
+                    ],
+                    'controls' => [
+                        '<span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="sr-only">Previous</span>',
+                        '<span class="carousel-control-next-icon" aria-hidden="true"></span><span class="sr-only">Next</span>',
+                    ],
+                ]);
+            ?>
+        </div>
     </div>
 </div>
 
-<div class="container-fluid">
-  <div class="row clearfix">
-    <div class="col-lg-3 col-md-6">
-        <div class="card">
-            <div class="card-body">
-                <div class="d-flex align-items-center">
-                    <div class="icon-in-bg bg-indigo text-white rounded-circle"><i class="fa fa-briefcase"></i></div>
-                    <div class="ml-4">
-                        <span>Total income</span>
-                        <h4 class="mb-0 font-weight-medium">$7,805</h4>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-lg-3 col-md-6">
-        <div class="card">
-            <div class="card-body">
-                <div class="d-flex align-items-center">
-                    <div class="icon-in-bg bg-azura text-white rounded-circle"><i class="fa fa-credit-card"></i></div>
-                    <div class="ml-4">
-                        <span>New expense</span>
-                        <h4 class="mb-0 font-weight-medium">$3,651</h4>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-lg-3 col-md-6">
-        <div class="card">
-            <div class="card-body">
-                <div class="d-flex align-items-center">
-                    <div class="icon-in-bg bg-orange text-white rounded-circle"><i class="fa fa-users"></i></div>
-                    <div class="ml-4">
-                        <span>Daily Visits</span>
-                        <h4 class="mb-0 font-weight-medium">5,805</h4>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-lg-3 col-md-6">
-        <div class="card">
-            <div class="card-body">
-                <div class="d-flex align-items-center">
-                    <div class="icon-in-bg bg-pink text-white rounded-circle"><i class="fa fa-life-ring"></i></div>
-                    <div class="ml-4">
-                        <span>Bounce rate</span>
-                        <h4 class="mb-0 font-weight-medium">$13,651</h4>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-  </div>
 
-  <div class="row clearfix">
-    <div class="col-lg-8 col-md-12 col-sm-12">
-        <div class="card">
-            <div class="header">
-                <h2>Site Visitors</h2>
-                <ul class="header-dropdown dropdown">
-                    
-                    <li><a href="javascript:void(0);" class="full-screen"><i class="icon-frame"></i></a></li>
-                    <li class="dropdown">
-                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="javascript:void(0);">Action</a></li>
-                            <li><a href="javascript:void(0);">Another Action</a></li>
-                            <li><a href="javascript:void(0);">Something else</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-            <div class="body">
-                <div id="world-map-markers" class="jvector-map" style="height: 245px"></div>
+<div class="container-fluid">
+    <div class="row clearfix">
+        <div class="col-12">
+            <div class="card-group m-b-30">
+                <div class="card n_category">
+                    <span class="sub_n_category bg-orange">Music</span>
+                    <img class="card-img-top" src="/theme-assets/images/news/news1.jpg" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title"><a href="#">The Madonna 80s Mastermix</a></h5>
+                        <p class="card-text">This is a wider card with supporting This content is a little bit longer.</p>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Last updated 3 mins ago</small>
+                    </div>
+                </div>
+                <div class="card n_category">
+                    <span class="sub_n_category bg-red">Tops</span>
+                    <img class="card-img-top" src="/theme-assets/images/news/news2.jpg" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title"><a href="#">The story behind a giant ship</a></h5>
+                        <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Last updated 7 mins ago</small>
+                    </div>
+                </div>
+                <div class="card n_category">
+                    <span class="sub_n_category p_right bg-purple">Food</span>
+                    <img class="card-img-top" src="/theme-assets/images/news/news4.jpg" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title"><a href="#">Ten films to watch in Sept...    </a></h5>
+                        <p class="card-text">This is a wider card with supportin content than the first to show that equal height action.</p>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Last updated 8 mins ago</small>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-lg-4 col-md-12">
+        <div class="col-12">
+            <div class="card-columns">
+                <div class="card">
+                    <div id="slider1" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img class="d-block w-100" src="/theme-assets/images/image-gallery/8.jpg" alt="First slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="/theme-assets/images/image-gallery/9.jpg" alt="Second slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="/theme-assets/images/image-gallery/1.jpg" alt="Third slide">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title"><a href="#">Card title that wraps to a new line</a></h5>
+                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <p class="card-text"><small class="text-muted">Last updated 13 mins ago</small></p>
+                    </div>
+                </div>                        
+                <div class="card n_category">
+                    <span class="sub_n_category bg-green">Photograph</span>
+                    <img class="card-img-top" src="/theme-assets/images/image-gallery/15.jpg" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title"><a href="#">'I cried when asked to be cover model'</a></h5>
+                        <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+                        <p class="card-text"><small class="text-muted">Last updated 13 mins ago</small></p>
+                    </div>
+                </div>
+                <div class="card n_category text-center">
+                    <span class="sub_n_category bg-cyan">Travel</span>
+                    <img class="card-img" src="/theme-assets/images/news/news6.jpg" alt="Card image">
+                    <div class="card-body">
+                        <h5 class="card-title"><a href="#">Wimbledon champion Kerber out of US Open</a></h5>
+                        <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+                        <p class="card-text"><small class="text-muted">Last updated 15 mins ago</small></p>
+                    </div>
+                </div>
+                <div class="card text-white bg-purple">
+                    <div class="card-body">
+                        <h5 class="card-title">Where does it come from?</h5>
+                        <p class="card-text">Lana Del Rey postpones Israel performance Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature.</p>
+                        <p class="card-text"><small class="text-light">Last updated 13 mins ago</small></p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <img class="card-img-top mb-3 rounded" src="/theme-assets/images/news/news10.jpg" alt="Card image cap">
+                        <h5 class="card-title"><a href="#">Where can I get some?</a></h5>
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+                        <p class="card-text"><small class="text-muted">Last updated 1 week ago</small></p>
+                    </div>
+                </div>                        
                 <div class="card">
                     <div class="card-body">
                         <div id="slider2" class="carousel vert slide" data-ride="carousel" data-interval="1700">
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
-                                    <div class="card-value float-right text-muted"><i class="wi wi-fog"></i></div>
-                                    <h3 class="mb-1">12°C</h3>
-                                    <div>London</div>
+                                    <h5 class="card-title">Special title treatment</h5>
+                                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                    <a href="#" class="btn btn-primary">Readmore</a>
                                 </div>
                                 <div class="carousel-item">
-                                    <div class="card-value float-right text-muted"><i class="wi wi-day-cloudy"></i></div>
-                                    <h3 class="mb-1">18°C</h3>
-                                    <div>New York</div>
-                                </div>
-                                <div class="carousel-item">
-                                    <div class="card-value float-right text-muted"><i class="wi wi-sunrise"></i></div>
-                                    <h3 class="mb-1">37°C</h3>
-                                    <div>New Delhi</div>
+                                    <h5 class="card-title">Special title treatment</h5>
+                                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                    <a href="#" class="btn btn-primary">Readmore</a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-4 col-md-12">
-                <div class="card">
-                    <div class="card-body">
-                        <div id="slider2" class="carousel vert slide" data-ride="carousel" data-interval="2000">
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <div class="card-value float-right text-muted"><i class="icon-drawer"></i></div>
-                                    <h3 class="mb-1">302</h3>
-                                    <div>Inbox</div>
-                                </div>
-                                <div class="carousel-item">
-                                    <div class="card-value float-right text-muted"><i class="icon-star"></i></div>
-                                    <h3 class="mb-1">21</h3>
-                                    <div>Starred</div>
-                                </div>
-                                <div class="carousel-item">
-                                    <div class="card-value float-right text-muted"><i class="icon-notebook"></i></div>
-                                    <h3 class="mb-1">2</h3>
-                                    <div>Drafts</div>
-                                </div>
-                            </div>
-                        </div>                                    
+                <div class="card n_category">
+                    <span class="sub_n_category bg-pink">Fashion</span>
+                    <img class="card-img-top" src="/theme-assets/images/news/news9.jpg" alt="Card image cap">
+                    <div class="body">                            
+                        <h5 class="mb-0 card-title"><a href="#">Some quick example text to build on the card title.</a></h5>
+                        <small>Feb 22, 10:47 am</small>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-4 col-md-12">
                 <div class="card">
+                    <img class="card-img" src="/theme-assets/images/image-gallery/1.jpg" alt="Card image">
+                    <div class="card-img-overlay">
+                        <h5 class="card-title">Amazon Fashion</h5>
+                        <p class="card-text">Your new look for the new season | Top brands | 30 days return</p>
+                        <p class="card-text">Last updated 3 mins ago</p>
+                    </div>
+                </div>
+                <div class="card n_category">
+                    <span class="sub_n_category bg-red">Tech</span>
+                    <img class="card-img-top" src="/theme-assets/images/image-gallery/10.jpg" alt="Card image cap">
+                    <div class="body">                            
+                        <h5 class="mb-0 card-title"><a href="#">Some quick example text to build on the card title.</a></h5>
+                        <small>Feb 22, 10:47 am</small>
+                    </div>
+                </div>
+                <div class="card text-white bg-success">
                     <div class="card-body">
-                        <div class="card-value float-right text-muted"><i class="icon-bubbles"></i></div>
-                        <h3 class="mb-1">102</h3>
-                        <div>Messages</div>
+                        <h5 class="card-title">Where does it come from?</h5>
+                        <p class="card-text">Lana Del Rey postpones Israel performance Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature.</p>
+                        <p class="card-text"><small class="text-light">Last updated 13 mins ago</small></p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img class="card-img-top" src="/theme-assets/images/news/news5.jpg" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title"><a href="#">'I cried when asked to be cover model'</a></h5>
+                        <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    </div>
+                </div>
+                <div class="card n_category">
+                    <span class="sub_n_category bg-pink">Fashion</span>
+                    <img class="card-img-top" src="/theme-assets/images/news/news8.jpg" alt="Card image cap">
+                    <div class="body">                            
+                        <h5 class="mb-0 card-title"><a href="#">Some quick example text to build on the card title.</a></h5>
+                        <small>Feb 22, 10:47 am</small>
+                    </div>
+                </div>
+                <div class="card n_category text-center">
+                    <span class="sub_n_category bg-indigo">Style</span>
+                    <img class="card-img" src="/theme-assets/images/news/news7.jpg" alt="Card image">
+                    <div class="card-body">
+                        <h5 class="card-title"><a href="#">Wimbledon champion Kerber out of US Open</a></h5>
+                        <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    </div>
+                </div>
+                <div class="card text-white bg-orange">
+                    <div class="card-body">
+                        <h5 class="card-title">Where does it come from?</h5>
+                        <p class="card-text">Lana Del Rey postpones Israel performance Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature.</p>
+                        <p class="card-text"><small class="text-light">Last updated 13 mins ago</small></p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img class="card-img" src="/theme-assets/images/news/news3.jpg" alt="Card image">
+                    <div class="card-img-overlay">
+                        <h5 class="card-title"><a href="#">Amazon Fashion</a></h5>
+                        <p class="card-text">Your new look for the new season | Top brands | 30 days return</p>
+                        <p class="card-text">Last updated 3 mins ago</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="col-lg-4 col-md-12 col-sm-12">
-        <div class="card">
-            <div class="header">
-                <h2>New Followers</h2>
-            </div>
-            <div class="body">
-                <ul class="right_chat w_followers list-unstyled mb-0">
-                    <li class="online">
-                        <a href="javascript:void(0);">
-                            <div class="media">
-                                <?= Html::img('/theme-assets/images/xs/avatar4.jpg', ['class' => 'media-object' ,'width' => 40, 'height' => 40, 'alt' => 'avatar4']) ?>
-                                <div class="media-body">
-                                    <span class="name">@MelissaMcCoy</span>
-                                    <span class="message">Designer, Blogger</span>
-                                    <span class="badge badge-outline status"></span>
-                                </div>
-                                <button class="btn btn-primary btn-sm">Follow</button>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="online">
-                        <a href="javascript:void(0);">
-                            <div class="media">
-                                <img class="media-object " src="theme-assets/images/xs/avatar5.jpg" alt="">
-                                <div class="media-body">
-                                    <span class="name">@Joge Lucky</span>
-                                    <span class="message">Java Developer</span>
-                                    <span class="badge badge-outline status"></span>
-                                </div>
-                                <button class="btn btn-primary btn-sm">Follow</button>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="offline">
-                        <a href="javascript:void(0);">
-                            <div class="media">
-                                <img class="media-object " src="/theme-assets/images/xs/avatar2.jpg" alt="">
-                                <div class="media-body">
-                                    <span class="name">@JuanMartinez</span>
-                                    <span class="message">CEO, puffintheme</span>
-                                    <span class="badge badge-outline status"></span>
-                                </div>
-                                <button class="btn btn-primary btn-sm">Follow</button>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="offline">
-                        <a href="javascript:void(0);">
-                            <div class="media">
-                                <img class="media-object " src="/theme-assets/images/xs/avatar1.jpg" alt="">
-                                <div class="media-body">
-                                    <span class="name">@Folisise Chosielie</span>
-                                    <span class="message">Art director, Movie Cut</span>
-                                    <span class="badge badge-outline status"></span>
-                                </div>
-                                <button class="btn btn-primary btn-sm">Follow</button>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="online">
-                        <a href="javascript:void(0);">
-                            <div class="media">
-                                <img class="media-object " src="theme-assets/images/xs/avatar3.jpg" alt="">
-                                <div class="media-body">
-                                    <span class="name">@LouisHenry</span>
-                                    <span class="message">Writter, Mag Editor</span>
-                                    <span class="badge badge-outline status"></span>
-                                </div>
-                                <button class="btn btn-primary btn-sm">Follow</button>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="offline">
-                        <a href="javascript:void(0);">
-                            <div class="media">
-                                <img class="media-object " src="/theme-assets/images/xs/avatar10.jpg" alt="">
-                                <div class="media-body">
-                                    <span class="name">@Folisise Chosielie</span>
-                                    <span class="message">Art director, Movie Cut</span>
-                                    <span class="badge badge-outline status"></span>
-                                </div>
-                                <button class="btn btn-primary btn-sm">Follow</button>
-                            </div>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-  </div>
-
-  <div class="row clearfix">
-    <div class="col-12">
-        <div class="table-responsive">
-            <table class="table header-border table-hover table-custom spacing5">
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Product</th>
-                        <th>Popularity</th>
-                        <th>Sales</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th class="w60">1</th>
-                        <td>Home Decor Range</td>
-                        <td>
-                            <div class="progress progress-xxs">
-                                <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="77" aria-valuemin="0" aria-valuemax="100" style="width: 77%;"></div>
-                            </div>
-                        </td>
-                        <td><span class="badge badge-primary">70%</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>2</th>
-                        <td>Bathroom Essentials</td>
-                        <td>
-                            <div class="progress progress-xxs">
-                                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="77" aria-valuemin="0" aria-valuemax="100" style="width: 77%;"></div>
-                            </div>
-                        </td>
-                        <td><span class="badge badge-success">70%</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>3</th>
-                        <td>Disney Princess Pink 18' School Bag</td>
-                        <td>
-                            <div class="progress progress-xxs">
-                                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="77" aria-valuemin="0" aria-valuemax="100" style="width: 77%;"></div>
-                            </div>
-                        </td>
-                        <td><span class="badge badge-dark">70%</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>4</th>
-                        <td>iPhone XS and XS Max</td>
-                        <td>
-                            <div class="progress progress-xxs">
-                                <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="77" aria-valuemin="0" aria-valuemax="100" style="width: 77%;"></div>
-                            </div>
-                        </td>
-                        <td><span class="badge badge-danger">70%</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>5</th>
-                        <td>Apple Smartwatches</td>
-                        <td>
-                            <div class="progress progress-xxs">
-                                <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="77" aria-valuemin="0" aria-valuemax="100" style="width: 77%;"></div>
-                            </div>
-                        </td>
-                        <td><span class="badge badge-warning">70%</span>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>               
-  </div>
-
 </div>
