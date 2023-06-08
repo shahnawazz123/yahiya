@@ -50,12 +50,12 @@ $(function() {
         // 1.showModalButton,2.modalContent
         $(document).on('click', '.showModalButton', function() {
             if ($('#modal').hasClass('show')) {
-                $('#modal').find('#modalContent')
+                $('#modal').find('#modelBootsrap4Content')
                      .load($(this).attr('value'));
                     $('.modal-header > #modal-label').val($(this).attr('title'));
             } else {
                 $('#modal').modal('show')
-                    .find('#modalContent')
+                    .find('#modelBootsrap4Content')
                     .load($(this).attr('value'));
                     $('.modal-header > #modal-label').val($(this).attr('title'));
             }

@@ -31,7 +31,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             'value' => Url::to(['create']),
                         ],
                     ]);
-                 echo "<div id='model-bootsrap4-content'></div>";
+                 echo "<div id='modelBootsrap4Content'></div>";
             Modal::end();?>
         </div>   
     </div>

@@ -16,10 +16,10 @@ use yii\helpers\Url;
     <div class="sidebar-scroll">
         <div class="user-account">
             <div class="user_div">
-                <?= Html::img('/theme-assets/images/user.png', ['class' => 'user-photo', 'alt' => 'User Profile Picture']) ?>
+                <?= Html::img('/theme-assets/images/user.png', ['class' => 'user-photo rollInTop', 'alt' => 'User Profile Picture']) ?>
             </div>
             <div class="dropdown">
-                <span>Welcome,</span>
+                <!-- <span>Welcome,</span> -->
                 <a href="javascript:void(0);" class="dropdown-toggle user-name" data-toggle="dropdown">
                     <strong>Shahnawaz Khan</strong>
                 </a>
@@ -31,7 +31,7 @@ use yii\helpers\Url;
                     <li><a href="page-login.html"><i class="icon-power"></i>Logout</a></li>
                 </ul>
             </div>
-            <?= Html::a('<i class="icon-plus mr-1"></i> Create New', '#', ['class' => 'btn btn-sm btn-block btn-primary btn-round mt-3', 'title' => '']) ?>
+            <?php //Html::a('<i class="icon-plus mr-1"></i> Create New', '#', ['class' => 'btn btn-sm btn-block btn-primary btn-round mt-3', 'title' => '']) ?>
         </div>
         <nav id="left-sidebar-nav" class="sidebar-nav">
             <ul id="main-menu" class="metismenu">
@@ -51,22 +51,29 @@ use yii\helpers\Url;
                 </li>
                 <li class="header">App</li>
                 <li>
-                    <a href="app-inbox.html">
+                    <a href="<?= Url::to(['banners/index'])?>">
                         <i class="icon-envelope"></i>
-                        <span>Email</span>
+                        <span>Banners</span>
                         <span class="badge badge-default float-right mr-0">12</span>
                     </a>
                 </li>
                 <li>
-                    <a href="app-chat.html">
-                        <i class="icon-bubbles"></i>
-                        <span>Chat</span>
+                    <a href="<?= Url::to(['brands/index'])?>">
+                        <i class="icon-envelope"></i>
+                        <span>Brands</span>
+                        <span class="badge badge-default float-right mr-0">12</span>
                     </a>
                 </li>
                 <li>
-                    <a href="app-calendar.html">
+                    <a href="<?= Url::to(['categories/index'])?>">
+                        <i class="icon-bubbles"></i>
+                        <span>Categories</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="<?= Url::to(['products/index'])?>">
                         <i class="icon-calendar"></i>
-                        <span>Calendar</span>
+                        <span>Products</span>
                     </a>
                 </li>
                 <li class="header">UI Elements</li>

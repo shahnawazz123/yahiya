@@ -68,6 +68,15 @@ if (YII_ENV_DEV) {
         'class' => 'yii\gii\Module',
         // uncomment the following to add your IP if you are not connecting from localhost.
         //'allowedIPs' => ['127.0.0.1', '::1'],
+        'generators' => [
+            'crud' => [
+                'class' => 'app\giiTemplates\crud\Generator',
+                //'class' => 'yii\gii\generators\crud\Generator',
+                'templates' => [
+                    'default' => '@app/giiTemplates/crud/default',
+                ]
+            ]
+        ],
     ];
 }
 

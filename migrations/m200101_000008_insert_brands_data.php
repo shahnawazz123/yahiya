@@ -2,19 +2,9 @@
 
 use yii\db\Migration;
 
-class mYYYYMMDD_HHMMSS_insert_brands_data extends Migration
+class m200101_000008_insert_brands_data extends Migration {
 
-{
-
-    /**
-
-     * {@inheritdoc}
-
-     */
-
-    public function safeUp()
-
-    {
+    public function safeUp(){
 
         $this->batchInsert('brands', ['name', 'description'], [
 
@@ -32,18 +22,8 @@ class mYYYYMMDD_HHMMSS_insert_brands_data extends Migration
 
     }
 
-    /**
-
-     * {@inheritdoc}
-
-     */
-
-    public function safeDown()
-
-    {
-
+    public function safeDown(){
         $this->delete('brands');
-
     }
 
 }
