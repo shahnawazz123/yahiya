@@ -34,7 +34,7 @@ class ThemeAsset extends AssetBundle
         ThemeAsset::VENDOR.'assets/bundles/jvectormap.bundle.js',
         ThemeAsset::VENDOR.'vendor/toastr/toastr.js',
         ThemeAsset::VENDOR.'assets/bundles/mainscripts.bundle.js',
-        ThemeAsset::VENDOR.'assets/js/index.js',
+        'js/custom-js.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',

@@ -21,31 +21,21 @@ $this->params['breadcrumbs'][] = $this->title;
             <h2><?=  Html::encode($this->title) ?></h2>
         </div>
         <div class="col-md-6 col-sm-12 text-right">
-            <?php Modal::begin([
-                    'title' => 'Create Categories',
-                    'centerVertical' => false,
-                    'id' => 'createCategories',
-                    'toggleButton' => [
-                        'label' => 'Create Categories',
-                        'class' => 'btn btn-sm btn-primary btn-round mt-3 showModalButton',
-                        'value' => Url::to(['create']),
-                    ],
-                ]); ?>
-
-            <div id="modelBootsrap4Content"></div>
-
-            <?php Modal::end(); ?>
+            <?= Html::button('Create Categories', [
+                'class' => 'btn btn-sm btn-primary btn-round mt-3 showModalButton',
+                'value' => Url::to(['create']),
+            ]); ?>
         </div>   
     </div>
 </div>
 <div class="categories-index container-fluid">
 
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+    <?php echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'tableOptions' => ['class' => 'table table-hover table-custom spacing8'],
-        'filterModel' => $searchModel,
+        //'filterModel' => $searchModel, 
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
             'name',
@@ -55,17 +45,20 @@ $this->params['breadcrumbs'][] = $this->title;
                     'template' => '{view} {update} {delete}',
                     'buttons' => [
                         'view' => function ($url, $model, $key) {
-                            return Html::a('<i class="icon-eye"></i>', $url, [
-                                'class' => 'btn btn-sm btn-default',
+                            
+                            return Html::button('<i class="icon-eye"></i>', [
+                                'class' => 'btn btn-sm btn-default showModalButton',
                                 'title' => 'View',
+                                'value' => $url,
                                 'data-toggle' => 'tooltip',
                                 'data-placement' => 'top',
                             ]);
                         },
                         'update' => function ($url, $model, $key) {
-                            return Html::a('<i class="icon-pencil"></i>', $url, [
-                                'class' => 'btn btn-sm btn-default',
+                            return Html::button('<i class="icon-pencil"></i>', [
+                                'class' => 'btn btn-sm btn-default showModalButton',
                                 'title' => 'Update',
+                                'value' => $url,
                                 'data-toggle' => 'tooltip',
                                 'data-placement' => 'top',
                             ]);
@@ -96,3 +89,13 @@ $this->params['breadcrumbs'][] = $this->title;
 
 
 </div>
+<?php
+Modal::begin([
+    'id' => 'modal',
+    'size' => 'modal-lg',
+    'title' => '',
+]);
+
+echo "<div id='modelBootsrap4Content'></div>";
+Modal::end();
+?>

@@ -27,7 +27,11 @@ use yii\helpers\Url;
 <div class="<?= Inflector::camel2id(StringHelper::basename($generator->modelClass)) ?>-form">
 	<div class="row clearfix">
         <div class="col-lg-12 col-md-12">
-		    <?= "<?php " ?>$form = ActiveForm::begin(); ?>
+		    <?= "<?php " ?>$form = ActiveForm::begin([
+		    	'action' => [$model->isNewRecord ? 'create' : 'update'],
+			    // 'id' => '<?= Inflector::camel2id(StringHelper::basename($generator->modelClass)) ?>-form',
+			    // 'enableAjaxValidation' => true, // Enable AJAX validation
+		    ]); ?>
 		    	<div class = "card">
 		    		<div class = "header">
 		    			<h2 class="text-capitalize"><?= Inflector::camel2id(StringHelper::basename($generator->modelClass)) ?> Form</h2>
@@ -44,7 +48,7 @@ use yii\helpers\Url;
 					</div>
 				</div>	
 				<div class="form-group">
-			        <?= "<?= " ?>Html::submitButton(<?= $generator->generateString('Save') ?>, ['class' => 'btn btn-sm btn-success btn-round']) ?>
+			        <?= "<?= " ?>Html::submitButton($model->isNewRecord ? 'Save' : 'Update'), ['class' => 'btn btn-sm btn-success btn-round']) ?>
 			    </div>
 			<?= "<?php " ?>ActiveForm::end(); ?>	
 		</div>	

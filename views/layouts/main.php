@@ -4,6 +4,7 @@ use app\assets\ThemeAsset;
 use app\widgets\Alert;
 //use yii\bootstrap5\Html;
 use yii\helpers\Html;
+use yii\helpers\Url;
 ThemeAsset::register($this);
 
 $this->title = 'Yahiya | Home';
@@ -20,6 +21,10 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => '/t
 <head>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
+    <script type="application/javascript">
+        var baseUrl = '<?php echo Url::base() . '/index.php?r='; ?>';
+        var _csrf = '<?php echo Yii::$app->request->getCsrfToken() ?>';
+    </script>
 </head>
 <body class="theme-blush">
 <?php $this->beginBody() ?>

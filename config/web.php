@@ -50,6 +50,16 @@ $config = [
                 '' => 'home/index', // Set the default route to 'site/index'
             ],
         ],
+        // 'assetManager' => [
+        //     'class' => 'yii\web\AssetManager',
+        //     'appendTimestamp' => false,
+        //     'forceCopy' => false,
+        //     'bundles' => [
+        //         'yii\web\JqueryAsset' => [
+        //             'jsOptions' => ['position' => \yii\web\View::POS_HEAD],
+        //         ],
+        //     ],
+        // ],
     ],
     'params' => $params,
 ];
