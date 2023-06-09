@@ -1,7 +1,7 @@
 <?php
 
 namespace app\controllers;
-
+use yii;
 use app\models\Brands;
 use app\models\BrandsSearch;
 use yii\web\Controller;
@@ -36,15 +36,20 @@ class BrandsController extends Controller
      *
      * @return string
      */
-    public function actionIndex()
-    {
+    
+    public function actionIndex(){
         $searchModel = new BrandsSearch();
         $dataProvider = $searchModel->search($this->request->queryParams);
 
-        return $this->render('index', [
+        $result = [
             'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
-        ]);
+            'dataProvider' => $dataProvider
+        ];
+
+        if (Yii::$app->request->isAjax) {
+            return $this->renderPartial('_index',$result);
+        }
+        return $this->render('index',$result);
     }
 
     /**
@@ -55,7 +60,7 @@ class BrandsController extends Controller
      */
     public function actionView($id)
     {
-        return $this->render('view', [
+        return $this->renderPartial('view', [
             'model' => $this->findModel($id),
         ]);
     }
@@ -71,20 +76,20 @@ class BrandsController extends Controller
 
         if ($this->request->isPost) {
             if ($model->load($this->request->post()) && $model->save()) {
-                return $this->redirect(['view', 'id' => $model->id]);
+                return $this->redirect(['index', 'id' => $model->id]);
             }
         } else {
             $model->loadDefaultValues();
         }
 
-        return $this->render('create', [
+        return $this->renderPartial('create', [
             'model' => $model,
         ]);
     }
 
     /**
      * Updates an existing Brands model.
-     * If update is successful, the browser will be redirected to the 'view' page.
+     * If update is successful, the browser will be reload to the 'index' page.
      * @param int $id ID
      * @return string|\yii\web\Response
      * @throws NotFoundHttpException if the model cannot be found
@@ -94,10 +99,10 @@ class BrandsController extends Controller
         $model = $this->findModel($id);
 
         if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['index', 'id' => $model->id]);
         }
 
-        return $this->render('update', [
+        return $this->renderPartial('update', [
             'model' => $model,
         ]);
     }

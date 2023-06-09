@@ -13,7 +13,6 @@ Pjax::begin(['id' => 'categories-pjax-container']);
 ?>
 
     <?= GridView::widget([
-        'id' => 'category-search',
         'dataProvider' => $dataProvider,
         'tableOptions' => ['class' => 'table table-hover table-custom spacing8'],
         //'filterModel' => $searchModel, 

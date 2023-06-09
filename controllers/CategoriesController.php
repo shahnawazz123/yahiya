@@ -38,20 +38,19 @@ class CategoriesController extends Controller
      * @return string
      */
     public function actionIndex(){
-        $searchModel = new CategoriesSearch();
+        $searchModel  = new CategoriesSearch();
         $dataProvider = $searchModel->search($this->request->queryParams);
+        
+        $result = [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider
+        ];
 
-        if (Yii::$app->request->isAjax && Yii::$app->request->isPjax) {
-            return $this->renderPartial('_index', [
-                'searchModel' => $searchModel,
-                'dataProvider' => $dataProvider,
-            ]);
+        if (Yii::$app->request->isAjax) {
+            return $this->renderPartial('_index',$result);
         }
 
-        return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
-        ]);
+        return $this->render('index',$result);
 
     }
 

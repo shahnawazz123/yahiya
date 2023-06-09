@@ -73,10 +73,15 @@ class <?= $controllerClass ?> extends <?= StringHelper::basename($generator->bas
         $searchModel = new <?= isset($searchModelAlias) ? $searchModelAlias : $searchModelClass ?>();
         $dataProvider = $searchModel->search($this->request->queryParams);
 
-        return $this->render('index', [
+        $result = [
             'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
-        ]);
+            'dataProvider' => $dataProvider
+        ];
+
+        if (Yii::$app->request->isAjax) {
+            return $this->renderPartial('_index',$result);
+        }
+        return $this->render('index',$result);
 <?php else: ?>
         $dataProvider = new ActiveDataProvider([
             'query' => <?= $modelClass ?>::find(),
@@ -124,7 +129,7 @@ class <?= $controllerClass ?> extends <?= StringHelper::basename($generator->bas
 
         if ($this->request->isPost) {
             if ($model->load($this->request->post()) && $model->save()) {
-                return $this->redirect(['view', <?= $urlParams ?>]);
+                return $this->redirect(['index', <?= $urlParams ?>]);
             }
         } else {
             $model->loadDefaultValues();
@@ -137,7 +142,7 @@ class <?= $controllerClass ?> extends <?= StringHelper::basename($generator->bas
 
     /**
      * Updates an existing <?= $modelClass ?> model.
-     * If update is successful, the browser will be redirected to the 'view' page.
+     * If update is successful, the browser will be reload to the 'index' page.
      * <?= implode("\n     * ", $actionParamComments) . "\n" ?>
      * @return string|\yii\web\Response
      * @throws NotFoundHttpException if the model cannot be found
@@ -147,7 +152,7 @@ class <?= $controllerClass ?> extends <?= StringHelper::basename($generator->bas
         $model = $this->findModel(<?= $actionParams ?>);
 
         if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
-            return $this->redirect(['view', <?= $urlParams ?>]);
+            return $this->redirect(['index', <?= $urlParams ?>]);
         }
 
         return $this->render('update', [

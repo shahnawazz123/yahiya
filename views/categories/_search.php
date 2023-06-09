@@ -14,7 +14,7 @@ use yii\widgets\ActiveForm;
             <?php $form = ActiveForm::begin([
                     'action' => ['index'],
                     'method' => 'get',
-                    'options' => ['data-pjax' => true],
+                    'options' => ['data-pjax' => 'categories-pjax-container'],
                 ]); 
             ?>
             <div class="card">
@@ -26,7 +26,6 @@ use yii\widgets\ActiveForm;
                         <?= $form->field($model, 'description',['options' => ['class' => 'ml-4']])->textInput(['placeholder' => $model->getAttributeLabel('description')])->label(false) ?>
                     </div>    
             <div class="form-group ml-4">
-                <?= Html::submitButton('Search', ['class' => 'btn btn-primary','id' => 'categories-search']) ?>
                 <?= Html::resetButton('Reset', ['class' => 'btn btn-outline-secondary']) ?>
             </div>
 
@@ -34,3 +33,27 @@ use yii\widgets\ActiveForm;
         </div>
     </div>        
 </div>
+<script type="text/javascript">
+    $(document).on("change", ".form-control", function(e) {
+        $(".page-loader-wrapper").css("background-color", "transparent").show();
+        const form = $(this).parents('form').eq(0);
+        const url  = form.attr("action");
+        const data = form.serializeArray();
+        const pjax = '#'+form.data('pjax');
+        $.ajax({
+            url: url,
+            data: data,
+            success: function(result) {
+                $(".page-loader-wrapper").hide();
+                $(pjax).html(result);
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                $(".page-loader-wrapper").hide();
+                console.log({
+                    'title': textStatus,
+                    'message': errorThrown
+                });
+            }
+        });
+    });
+</script>
