@@ -25,7 +25,7 @@ class CategoriesController extends Controller
                 'verbs' => [
                     'class' => VerbFilter::className(),
                     'actions' => [
-                        //'delete' => ['POST'],
+                        'delete' => ['POST'],
                     ],
                 ],
             ]
@@ -41,10 +41,18 @@ class CategoriesController extends Controller
         $searchModel = new CategoriesSearch();
         $dataProvider = $searchModel->search($this->request->queryParams);
 
+        if (Yii::$app->request->isAjax && Yii::$app->request->isPjax) {
+            return $this->renderPartial('_index', [
+                'searchModel' => $searchModel,
+                'dataProvider' => $dataProvider,
+            ]);
+        }
+
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
+
     }
 
     public function actionView($id){

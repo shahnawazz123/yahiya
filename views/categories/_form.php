@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use yii\helpers\Url;
+
 /** @author Shahnawaz Khan */
 /** @var app\models\Categories $model */
 /** @var yii\widgets\ActiveForm $form */
@@ -18,11 +19,11 @@ use yii\helpers\Url;
 			    'enableAjaxValidation' => true, // Enable AJAX validation
 			]); ?>
 
-		    	<div class = "card">
-		    		<div class = "header">
+		    	<div class="card">
+		    		<div class="header">
 		    			<h2 class="text-capitalize">categories Form</h2>
 		    		</div>
-		    		<div class = "body">
+		    		<div class="body">
 		    			<?= $form->field($model, 'name')->textInput(['maxlength' => true])?>
 						<?= $form->field($model, 'description')->textarea(['rows' => 6])?>
 					</div>
