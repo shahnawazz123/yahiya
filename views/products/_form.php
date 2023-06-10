@@ -2,37 +2,45 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-
-/** @var yii\web\View $this */
+use yii\helpers\Url;
+/** @author Shahnawaz Khan */
 /** @var app\models\Products $model */
 /** @var yii\widgets\ActiveForm $form */
 ?>
 
-<div class="products-form container-fluid">
-    <div class="row clearfix">
+<div class="products-form">
+	<div class="row clearfix">
         <div class="col-lg-12 col-md-12">
-            <?php
-                $form = ActiveForm::begin();
-                $options = ['options'=>['class' => 'col-lg-6 col-md-6 col-sm-12']];
-                echo Html::beginTag('div', ['class' => 'card']);
-                    echo Html::tag('div', '<h2>Product Form</h2>', ['class' => 'header']);
-                    echo Html::beginTag('div', ['class' => 'body']);
-                        echo $form->field($model, 'name',$options)->textInput(['maxlength' => true]);
-                        echo $form->field($model, 'description',$options)->textarea(['rows' => 6]);
-                        echo $form->field($model, 'price',$options)->textInput(['maxlength' => true]);
-                        echo $form->field($model, 'image_url',$options)->textInput(['maxlength' => true]);
-                        echo $form->field($model, 'category_id',$options)->textInput();
-                        echo $form->field($model, 'brand_id',$options)->textInput();
-                        echo $form->field($model, 'quantity',$options)->textInput();   
-                    echo Html::endTag('div');
-                echo Html::endTag('div');
-                
-                echo Html::beginTag('div', ['class' => 'form-group']);
-                    echo Html::submitButton('Save', ['class' => 'btn btn-success']);
-                echo Html::endTag('div');
-            
-                ActiveForm::end();
-            ?>
-        </div>
-    </div>
+		    <?php $form = ActiveForm::begin([
+		    	'action' => [$model->isNewRecord ? 'create' : 'update'],
+			    // 'id' => 'products-form',
+			    // 'enableAjaxValidation' => true, // Enable AJAX validation
+		    ]); ?>
+		    	<div class = "card">
+		    		<div class = "header">
+		    			<h2 class="text-capitalize">products Form</h2>
+		    		</div>
+		    		<div class = "body">
+		    			<?= $form->field($model, 'name')->textInput(['maxlength' => true])?>
+
+<?= $form->field($model, 'description')->textarea(['rows' => 6])?>
+
+<?= $form->field($model, 'price')->textInput(['maxlength' => true])?>
+
+<?= $form->field($model, 'image_url')->textInput(['maxlength' => true])?>
+
+<?= $form->field($model, 'category_id')->textInput()?>
+
+<?= $form->field($model, 'brand_id')->textInput()?>
+
+<?= $form->field($model, 'quantity')->textInput()?>
+
+					</div>
+				</div>	
+				<div class="form-group">
+			        <?= Html::submitButton($model->isNewRecord ? 'Save' : 'Update'), ['class' => 'btn btn-sm btn-success btn-round']) ?>
+			    </div>
+			<?php ActiveForm::end(); ?>	
+		</div>	
+	</div>
 </div>

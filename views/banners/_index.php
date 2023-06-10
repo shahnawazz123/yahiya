@@ -1,57 +1,28 @@
 <?php
 
-use yii\helpers\Inflector;
-use yii\helpers\StringHelper;
-
-/** @var yii\web\View $this */
-/** @var yii\gii\generators\crud\Generator $generator */
-
-$modelClass = StringHelper::basename($generator->modelClass);
-
-echo "<?php\n";
-?>
-
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\grid\ActionColumn;
-use <?= $generator->indexWidgetType === 'grid' ? "yii\\grid\\GridView" : "yii\\widgets\\ListView" ?>;
-<?= $generator->enablePjax ? 'use yii\widgets\Pjax;' : '' ?>
-
+use yii\grid\GridView;
+use yii\widgets\Pjax;
 /** @author Shahnawaz Khan */
-<?= !empty($generator->searchModelClass) ? "/** @var " . ltrim($generator->searchModelClass, '\\') . " \$searchModel */\n" : '' ?>
+/** @var app\models\BannersSearch $searchModel */
 /** @var yii\data\ActiveDataProvider $dataProvider */
 
-Pjax::begin(['id' => "<?= Inflector::camel2id(StringHelper::basename($generator->modelClass)) ?>-pjax-container"]);
+Pjax::begin(['id' => "banners-pjax-container"]);
 ?>
 
-<?php if ($generator->indexWidgetType === 'grid'): ?>
-    <?= "<?= " ?>GridView::widget([
+    <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'tableOptions' => ['class' => 'table table-hover table-custom spacing8'],
-        <?= !empty($generator->searchModelClass) ? "'columns' => [\n" : "'columns' => [\n"; ?>
+        'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-
-<?php
-$count = 0;
-if (($tableSchema = $generator->getTableSchema()) === false) {
-    foreach ($generator->getColumnNames() as $name) {
-        if (++$count < 6) {
-            echo "            '" . $name . "',\n";
-        } else {
-            echo "            //'" . $name . "',\n";
-        }
-    }
-} else {
-    foreach ($tableSchema->columns as $column) {
-        $format = $generator->generateColumnFormat($column);
-        if (++$count < 6) {
-            echo "            '" . $column->name . ($format === 'text' ? "" : ":" . $format) . "',\n";
-        } else {
-            echo "            //'" . $column->name . ($format === 'text' ? "" : ":" . $format) . "',\n";
-        }
-    }
-}
-?>
+            'title',
+            'image_url:url',
+            'link',
+            'sequence_number',
+            //'created_at',
+            //'updated_at',
             [
                 'class' => 'yii\grid\ActionColumn',
                 'template' => '{view} {update} {delete}',
@@ -90,14 +61,5 @@ if (($tableSchema = $generator->getTableSchema()) === false) {
             ],
         ],
     ]); ?>
-<?php else: ?>
-    <?= "<?= " ?>ListView::widget([
-        'dataProvider' => $dataProvider,
-        'itemOptions' => ['class' => 'item'],
-        'itemView' => function ($model, $key, $index, $widget) {
-            return Html::a(Html::encode($model-><?= $generator->getNameAttribute() ?>), ['view', <?= $generator->generateUrlParams() ?>]);
-        },
-    ]) ?>
-<?php endif; ?>
 
-<?= $generator->enablePjax ? "    <?php Pjax::end(); ?>\n" : '' ?>
+    <?php Pjax::end(); ?>

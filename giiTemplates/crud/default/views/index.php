@@ -50,5 +50,5 @@ $this->params['breadcrumbs'][] = $this->title;
         'size' => 'modal-lg',
         'id' => 'modal',
     ]);
-    <?= "echo" ?> "<div id='modelBootsrap4Content'></div>"; ?>
+    <?= "echo" ?> "<div id='modelBootsrap4Content'></div>";
 Modal::end(); ?>

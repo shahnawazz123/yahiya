@@ -307,10 +307,10 @@ class Generator extends \yii\gii\Generator
 
         $column = $tableSchema->columns[$attribute];
         if ($column->phpType === 'boolean') {
-            return "\$form->field(\$model, '$attribute')->checkbox()";
+            return "\$form->field(\$model, '$attribute',['options' => ['class' => 'ml-4']])->checkbox()";
         }
 
-        return "\$form->field(\$model, '$attribute')";
+        return "\$form->field(\$model, '$attribute',['options' => ['class' => 'ml-4']])->textInput(['placeholder' => \$model->getAttributeLabel('$attribute')])->label(false)";
     }
 
     /**

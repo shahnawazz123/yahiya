@@ -17,7 +17,7 @@ $this->params['breadcrumbs'][] = 'Update';
             <h2><?= Html::encode($this->title) ?></h2>
         </div>
 	</div>
-</div>	
-<div class="banners-update">
+</div>
+<div class="banners-create container-fluid">
     <?= $this->render('_form', ['model' => $model]) ?>
 </div>

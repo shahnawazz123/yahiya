@@ -3,7 +3,9 @@
 namespace app\models;
 
 use Yii;
-
+use app\models\Brands;
+use app\models\Categories;
+use yii\helpers\ArrayHelper;
 /**
  * This is the model class for table "products".
  *
@@ -64,41 +66,29 @@ class Products extends \yii\db\ActiveRecord
         ];
     }
 
-    /**
-     * Gets query for [[Brand]].
-     *
-     * @return \yii\db\ActiveQuery
-     */
     public function getBrand()
     {
         return $this->hasOne(Brands::class, ['id' => 'brand_id']);
     }
 
-    /**
-     * Gets query for [[Category]].
-     *
-     * @return \yii\db\ActiveQuery
-     */
+    public function getAllBrands(){
+        return ArrayHelper::map(Brands::find()->all(), 'id', 'name');
+    }
+
     public function getCategory()
     {
         return $this->hasOne(Categories::class, ['id' => 'category_id']);
     }
 
-    /**
-     * Gets query for [[OrderItems]].
-     *
-     * @return \yii\db\ActiveQuery
-     */
+    public function getAllCategories(){
+        return ArrayHelper::map(Categories::find()->all(), 'id', 'name');
+    }
+
     public function getOrderItems()
     {
         return $this->hasMany(OrderItems::class, ['product_id' => 'id']);
     }
 
-    /**
-     * Gets query for [[Reviews]].
-     *
-     * @return \yii\db\ActiveQuery
-     */
     public function getReviews()
     {
         return $this->hasMany(Reviews::class, ['product_id' => 'id']);

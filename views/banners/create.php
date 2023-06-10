@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <h2><?= Html::encode($this->title) ?></h2>
         </div>
 	</div>
-</div>	
-<div class="banners-create">
+</div>
+<div class="banners-create container-fluid">
     <?= $this->render('_form', ['model' => $model]) ?>
 </div>
