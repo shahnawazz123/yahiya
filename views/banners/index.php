@@ -24,6 +24,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <?=  Html::button('Create Banners', [
                 'class' => 'btn btn-sm btn-primary btn-round mt-3 showModalButton',
                 'value' => Url::to(['create']),
+                'data-title' => 'Create Banners',
             ]); ?>
         </div>   
     </div>

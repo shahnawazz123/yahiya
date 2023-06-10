@@ -34,6 +34,7 @@ Pjax::begin(['id' => "banners-pjax-container"]);
                             'value' => $url,
                             'data-toggle' => 'tooltip',
                             'data-placement' => 'top',
+                            'data-title' => 'View Banners',
                         ]);
                     },
                     'update' => function ($url, $model, $key) {
@@ -43,6 +44,7 @@ Pjax::begin(['id' => "banners-pjax-container"]);
                             'value' => $url,
                             'data-toggle' => 'tooltip',
                             'data-placement' => 'top',
+                            'data-title' => 'Update Banners',
                         ]);
                     },
                     'delete' => function ($url, $model, $key) {
