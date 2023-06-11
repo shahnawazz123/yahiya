@@ -92,7 +92,7 @@ class BannersController extends Controller
                 }
 
                 if ($model->validate() && $model->save()) {
-                    Yii::$app->session->setFlash('success', 'Banner successfully uploaded.');
+                    Yii::$app->session->setFlash('popup-success', 'Banner successfully uploaded.');
                     return $this->redirect(['index']);
                 } else {
                     Yii::$app->response->format = Response::FORMAT_JSON;
@@ -105,16 +105,7 @@ class BannersController extends Controller
         }
     }
 
-
-    /**
-     * Updates an existing Banners model.
-     * If update is successful, the browser will be reload to the 'index' page.
-     * @param int $id ID
-     * @return string|\yii\web\Response
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    public function actionUpdate($id)
-    {
+    public function actionUpdate($id){
         $model = $this->findModel($id);
         $model->updated_at = date('Y-m-d h:i:s');
         $model->setScenario('update');
@@ -135,34 +126,24 @@ class BannersController extends Controller
                 }
 
                 if ($model->validate() && $model->save()) {
-                    Yii::$app->session->setFlash('success', 'Banner successfully uploaded.');
+                    Yii::$app->session->setFlash('popup-success', 'Banner successfully uploaded.');
                     return $this->redirect(['index']);
                 } else {
                     Yii::$app->response->format = Response::FORMAT_JSON;
                     return ['errors' => $model->errors];
                 }
             }
-            return $this->renderAjax('create', ['model' => $model]);
+            return $this->renderAjax('update', ['model' => $model]);
         }else{
             return $this->redirect(['index']);
         }
-
-        return $this->renderAjax('update', [
-            'model' => $model,
-        ]);
     }
 
-    /**
-     * Deletes an existing Banners model.
-     * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param int $id ID
-     * @return \yii\web\Response
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    public function actionDelete($id)
-    {
-        $this->findModel($id)->delete();
-
+    public function actionDelete($id){
+        $model      = $this->findModel($id);
+        $message    = "{$model->name} Banners deleted successfully.";
+        $model->delete();
+        Yii::$app->session->setFlash('popup-success', $message);
         return $this->redirect(['index']);
     }
 

@@ -39,9 +39,10 @@ class Products extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'price'], 'required'],
+            [['name', 'price','brand_id','category_id','description'], 'required'],
             [['description'], 'string'],
             [['price'], 'number'],
+            [['image_url'], 'safe', 'on' => 'update'],
             [['category_id', 'brand_id', 'quantity'], 'integer'],
             [['name', 'image_url'], 'string', 'max' => 255],
             [['brand_id'], 'exist', 'skipOnError' => true, 'targetClass' => Brands::class, 'targetAttribute' => ['brand_id' => 'id']],
@@ -60,8 +61,8 @@ class Products extends \yii\db\ActiveRecord
             'description' => 'Description',
             'price' => 'Price',
             'image_url' => 'Image Url',
-            'category_id' => 'Category ID',
-            'brand_id' => 'Brand ID',
+            'category_id' => 'Category Name',
+            'brand_id' => 'Brand Name',
             'quantity' => 'Quantity',
         ];
     }

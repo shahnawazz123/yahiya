@@ -23,13 +23,10 @@ class Brands extends \yii\db\ActiveRecord
         return 'brands';
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function rules()
     {
         return [
-            [['name'], 'required'],
+            [['name','description'], 'required'],
             [['description'], 'string'],
             [['name'], 'string', 'max' => 255],
         ];

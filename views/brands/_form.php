@@ -13,8 +13,8 @@ use yii\helpers\Url;
         <div class="col-lg-12 col-md-12">
 		    <?php $form = ActiveForm::begin([
 		    	'action' => [$model->isNewRecord ? 'create' : "update?id={$model->id}"],
-			    // 'id' => 'banners-form',
-			    // 'enableAjaxValidation' => true, // Enable AJAX validation
+			    'id' => 'brands-form',
+			    'enableAjaxValidation' => true, // Enable AJAX validation
 		    ]); ?>
 		    	<div class = "card">
 		    		<div class = "header">

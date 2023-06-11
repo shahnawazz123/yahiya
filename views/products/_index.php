@@ -20,16 +20,33 @@ Pjax::begin(['id' => "products-pjax-container"]);
             'name',
             'description:ntext',
             'price',
-            'image_url:url',
-            //'category_id',
-            //'brand_id',
-            //'quantity',
+            [
+                'attribute' => 'image',
+                'format' => 'html',
+                'value' => function ($model) {
+                    return Html::img($model->image_url, ['width' => '100px']);
+                },
+            ],
+            [
+                'attribute' => 'category_id',
+                'format'     => 'text',
+                'value'     => function ($model) {
+                    return $model->category->name;
+                }
+            ],
+            [
+                'attribute' => 'brand_id',
+                'format'     => 'text',
+                'value'     => function ($model) {
+                    return $model->brand->name;
+                }
+            ],
             [
                 'class' => 'yii\grid\ActionColumn',
                 'template' => '{view} {update} {delete}',
                 'buttons' => [
                     'view' => function ($url, $model, $key) {
-                        return Html::button('<i class="icon-eye"></i>', $url, [
+                        return Html::button('<i class="icon-eye"></i>', [
                             'class' => 'btn btn-sm btn-default showModalButton',
                             'title' => 'View',
                             'value' => $url,
@@ -38,7 +55,7 @@ Pjax::begin(['id' => "products-pjax-container"]);
                         ]);
                     },
                     'update' => function ($url, $model, $key) {
-                        return Html::button('<i class="icon-pencil"></i>', $url, [
+                        return Html::button('<i class="icon-pencil"></i>', [
                             'class' => 'btn btn-sm btn-default showModalButton',
                             'title' => 'Update',
                             'value' => $url,
@@ -55,6 +72,9 @@ Pjax::begin(['id' => "products-pjax-container"]);
                             'data' => [
                                 'confirm' => 'Are you sure you want to delete this item?',
                                 'method' => 'post',
+                                'params' => [
+                                    Yii::$app->request->csrfParam => Yii::$app->request->csrfToken,
+                                ],
                             ],
                         ]);
                     },

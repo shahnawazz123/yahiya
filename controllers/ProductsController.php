@@ -8,7 +8,9 @@ use app\models\ProductsSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-
+use yii\web\UploadedFile;
+use yii\web\Response;
+use yii\widgets\ActiveForm;
 /**
  * ProductsController implements the CRUD actions for Products model.
  */
@@ -37,8 +39,7 @@ class ProductsController extends Controller
      *
      * @return string
      */
-    public function actionIndex()
-    {
+    public function actionIndex(){
         $searchModel = new ProductsSearch();
         $dataProvider = $searchModel->search($this->request->queryParams);
 
@@ -53,37 +54,43 @@ class ProductsController extends Controller
         return $this->render('index',$result);
     }
 
-    /**
-     * Displays a single Products model.
-     * @param int $id ID
-     * @return string
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    public function actionView($id)
-    {
-        return $this->render('view', [
+    public function actionView($id){
+        return $this->renderAjax('view', [
             'model' => $this->findModel($id),
         ]);
     }
 
-    /**
-     * Creates a new Products model.
-     * If creation is successful, the browser will be redirected to the 'view' page.
-     * @return string|\yii\web\Response
-     */
     public function actionCreate()
     {
         $model = new Products();
 
-        if ($this->request->isPost) {
-            if ($model->load($this->request->post()) && $model->save()) {
-                return $this->redirect(['index', 'id' => $model->id]);
+        if (Yii::$app->request->isAjax) {
+            if (Yii::$app->request->isPost && $model->load($this->request->post())) {
+                $model->image_url = UploadedFile::getInstance($model, 'image_url');
+
+                if (!empty($model->image_url)) {
+                    $basePath = Yii::getAlias('@webroot');
+                    $filepath = '/images/products/' . $model->image_url->baseName . '.' . $model->image_url->extension;
+
+                    if ($model->image_url->saveAs($basePath . $filepath)) {
+                        $model->image_url = $filepath;
+                    }
+                }
+
+                if ($model->validate() && $model->save()) {
+                    Yii::$app->session->setFlash('popup-success', 'Banner successfully uploaded.');
+                    return $this->redirect(['index']);
+                } else {
+                    Yii::$app->response->format = Response::FORMAT_JSON;
+                    return ['errors' => $model->errors];
+                }
             }
-        } else {
-            $model->loadDefaultValues();
+            return $this->renderAjax('create', ['model' => $model]);
+        }else{
+            return $this->redirect(['index']);
         }
 
-        return $this->render('create', [
+        return $this->renderAjax('create', [
             'model' => $model,
         ]);
     }
@@ -99,25 +106,42 @@ class ProductsController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
-            return $this->redirect(['index', 'id' => $model->id]);
-        }
+        $model->setScenario('update');
 
-        return $this->render('update', [
-            'model' => $model,
-        ]);
+        if (Yii::$app->request->isAjax) {
+            if (Yii::$app->request->isPost && $model->load($this->request->post())) {
+                $model->image_url = UploadedFile::getInstance($model, 'image_url');
+
+                if (!empty($model->image_url)) {
+                    $basePath = Yii::getAlias('@webroot');
+                    $filepath = '/products/banners/' . $model->image_url->baseName . '.' . $model->image_url->extension;
+
+                    if ($model->image_url->saveAs($basePath . $filepath)) {
+                        $model->image_url = $filepath;
+                    }
+                }else{
+                    unset($model->image_url);
+                }
+
+                if ($model->validate() && $model->save()) {
+                    Yii::$app->session->setFlash('popup-success', 'Products successfully updated.');
+                    return $this->redirect(['index']);
+                } else {
+                    Yii::$app->response->format = Response::FORMAT_JSON;
+                    return ['errors' => $model->errors];
+                }
+            }
+            return $this->renderAjax('update', ['model' => $model]);
+        }else{
+            return $this->redirect(['index']);
+        }
     }
 
-    /**
-     * Deletes an existing Products model.
-     * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param int $id ID
-     * @return \yii\web\Response
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    public function actionDelete($id)
-    {
-        $this->findModel($id)->delete();
+    public function actionDelete($id){
+        $model      = $this->findModel($id);
+        $message    = "{$model->name} Brands deleted successfully.";
+        $model->delete();
+        Yii::$app->session->setFlash('popup-success', $message);
 
         return $this->redirect(['index']);
     }

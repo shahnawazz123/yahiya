@@ -7,7 +7,8 @@ use app\models\BrandsSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-
+use yii\web\Response;
+use yii\widgets\ActiveForm;
 /**
  * BrandsController implements the CRUD actions for Brands model.
  */
@@ -52,12 +53,6 @@ class BrandsController extends Controller
         return $this->render('index',$result);
     }
 
-    /**
-     * Displays a single Brands model.
-     * @param int $id ID
-     * @return string
-     * @throws NotFoundHttpException if the model cannot be found
-     */
     public function actionView($id)
     {
         return $this->renderPartial('view', [
@@ -65,59 +60,50 @@ class BrandsController extends Controller
         ]);
     }
 
-    /**
-     * Creates a new Brands model.
-     * If creation is successful, the browser will be redirected to the 'view' page.
-     * @return string|\yii\web\Response
-     */
-    public function actionCreate()
-    {
+    public function actionCreate(){
         $model = new Brands();
 
-        if ($this->request->isPost) {
-            if ($model->load($this->request->post()) && $model->save()) {
-                return $this->redirect(['index', 'id' => $model->id]);
-            }
-        } else {
-            $model->loadDefaultValues();
+        if ($this->request->isAjax && $this->request->isPost) {
+            if ($model->load($this->request->post()) && $model->validate()) {
+                $model->save();
+                Yii::$app->session->setFlash('popup-success', 'Brands saved successfully.');
+                return $this->redirect(['index']);
+            } else {
+                $this->response->format = Response::FORMAT_JSON;
+                return ActiveForm::validate($model);
+                //$model->loadDefaultValues();
+            }    
         }
 
-        return $this->renderPartial('create', [
+        return $this->renderAjax('create', [
             'model' => $model,
         ]);
     }
 
-    /**
-     * Updates an existing Brands model.
-     * If update is successful, the browser will be reload to the 'index' page.
-     * @param int $id ID
-     * @return string|\yii\web\Response
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    public function actionUpdate($id)
-    {
+    public function actionUpdate($id){
         $model = $this->findModel($id);
 
-        if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
-            return $this->redirect(['index', 'id' => $model->id]);
+        if ($this->request->isAjax && $this->request->isPost) {
+            if ($model->load($this->request->post()) && $model->validate()) {
+                $model->save();
+                Yii::$app->session->setFlash('popup-success', 'Brands update successfully.');
+                return $this->redirect(['index']);
+            } else {
+                $this->response->format = Response::FORMAT_JSON;
+                return ActiveForm::validate($model);
+            }    
         }
 
-        return $this->renderPartial('update', [
+        return $this->renderAjax('update', [
             'model' => $model,
         ]);
     }
 
-    /**
-     * Deletes an existing Brands model.
-     * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param int $id ID
-     * @return \yii\web\Response
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    public function actionDelete($id)
-    {
-        $this->findModel($id)->delete();
-
+    public function actionDelete($id){
+        $model      = $this->findModel($id);
+        $message    = "{$model->name} Brands deleted successfully.";
+        $model->delete();
+        Yii::$app->session->setFlash('popup-success', $message);
         return $this->redirect(['index']);
     }
 

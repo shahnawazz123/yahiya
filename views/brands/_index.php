@@ -50,6 +50,9 @@ Pjax::begin(['id' => "brands-pjax-container"]);
                             'data' => [
                                 'confirm' => 'Are you sure you want to delete this item?',
                                 'method' => 'post',
+                                'params' => [
+                                    Yii::$app->request->csrfParam => Yii::$app->request->csrfToken,
+                                ],
                             ],
                         ]);
                     },

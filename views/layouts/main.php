@@ -1,8 +1,7 @@
 <?php
 use yii\web\View;
 use app\assets\ThemeAsset;
-use app\widgets\Alert;
-//use yii\bootstrap5\Html;
+use app\widgets\Notification;
 use yii\helpers\Html;
 use yii\helpers\Url;
 ThemeAsset::register($this);
@@ -56,7 +55,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => '/t
     </div>
 
 <main id="main-content">
-        <?= Alert::widget() ?>
+        <?= Notification::widget() ?>
         <?= $content ?>
 </main>
 

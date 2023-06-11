@@ -28,7 +28,7 @@ use yii\widgets\ActiveForm;
                     <?= $form->field($model, 'price',['options' => ['class' => 'ml-4']])->textInput(['placeholder' => $model->getAttributeLabel('price')])->label(false) ?>
 
                     <?= $form->field($model, 'image_url',['options' => ['class' => 'ml-4']])->textInput(['placeholder' => $model->getAttributeLabel('image_url')])->label(false) ?>
-                    
+
                     <?= $form->field($model, 'category_id',['options' => ['class' => 'ml-4']])->dropDownList($model->allCategories, ['class' => 'form-control'])->label(false); ?>
 
                     <?= $form->field($model, 'brand_id',['options' => ['class' => 'ml-4']])->dropDownList($model->allBrands, ['class' => 'form-control'])->label(false); ?>
@@ -42,7 +42,7 @@ use yii\widgets\ActiveForm;
    </div>         
 </div>
 <script type="text/javascript">
-    $(document).on("change", ".form-control", function(e) {
+    $(document).on("change", ".products-search .form-control", function(e) {
         $(".page-loader-wrapper").css("background-color", "transparent").show();
         const form = $(this).parents('form').eq(0);
         const url  = form.attr("action");
