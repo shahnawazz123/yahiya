@@ -14,7 +14,7 @@ use yii\helpers\Url;
 	<div class="row clearfix">
         <div class="col-lg-12 col-md-12">
 		    <?php $form = ActiveForm::begin([
-		    	'action' => [$model->isNewRecord ? 'create' : 'update'],
+		    	'action' => [$model->isNewRecord ? 'create' : "update?id={$model->id}"],
 			    'id' => 'banners-form',
 			    //'enableAjaxValidation' => true, // Enable AJAX validation
 			    'options' => ['enctype' => 'multipart/form-data']
@@ -26,7 +26,7 @@ use yii\helpers\Url;
 		    		<div class="body">
 		    			<?= $form->field($model, 'title')->textInput(['maxlength' => true])?>
 		    			
-		    			<?= $form->field($model, 'image_url')->fileInput(['class' => 'custom-dropify-upload','data-height' => '100', 'data-default-message' => 'Drag & Drop']); ?>
+		    			<?= $form->field($model, 'image_url')->fileInput(['class' => 'custom-dropify-upload','data-height' => '100', 'data-default-file' => Url::base().$model->image_url]); ?>
 		    			 
 						<div class="d-flex">
 						<?= $form->field($model, 'link',['options' => ['class' => 'mr-4']])->textInput(['maxlength' => true])?>
@@ -64,8 +64,8 @@ $(document).on('click', 'button.btn-sm', function(event) {
             
             // Iterate through the error messages and update the form fields
             $.each(response.errors, function(field, messages) {
-                const input = form.find('#banners-' + field);
-                const errorContainer = $('<div class="help-block"></div>');
+                var input = form.find('.field-banners-' + field);
+                var errorContainer = $('<div class="help-block"></div>');
                 
                 // Add error class to the form field container
                 input.closest('.form-group').addClass('has-error');

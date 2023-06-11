@@ -18,7 +18,13 @@ Pjax::begin(['id' => "banners-pjax-container"]);
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
             'title',
-            'image_url:url',
+            [
+                'attribute' => 'image',
+                'format' => 'html',
+                'value' => function ($model) {
+                    return Html::img($model->image_url, ['width' => '100px']);
+                },
+            ],
             'link',
             'sequence_number',
             //'created_at',
@@ -56,6 +62,9 @@ Pjax::begin(['id' => "banners-pjax-container"]);
                             'data' => [
                                 'confirm' => 'Are you sure you want to delete this item?',
                                 'method' => 'post',
+                                'params' => [
+                                    Yii::$app->request->csrfParam => Yii::$app->request->csrfToken,
+                                ],
                             ],
                         ]);
                     },

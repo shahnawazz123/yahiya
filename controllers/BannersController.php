@@ -27,7 +27,7 @@ class BannersController extends Controller
                 'verbs' => [
                     'class' => VerbFilter::className(),
                     'actions' => [
-                        'delete' => ['GET'],
+                        'delete' => ['POST'],
                     ],
                 ],
             ]
@@ -117,12 +117,37 @@ class BannersController extends Controller
     {
         $model = $this->findModel($id);
         $model->updated_at = date('Y-m-d h:i:s');
-        
-        if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
-            return $this->redirect(['index', 'id' => $model->id]);
+        $model->setScenario('update');
+
+        if (Yii::$app->request->isAjax) {
+            if (Yii::$app->request->isPost && $model->load($this->request->post())) {
+                $model->image_url = UploadedFile::getInstance($model, 'image_url');
+
+                if (!empty($model->image_url)) {
+                    $basePath = Yii::getAlias('@webroot');
+                    $filepath = '/images/banners/' . $model->image_url->baseName . '.' . $model->image_url->extension;
+
+                    if ($model->image_url->saveAs($basePath . $filepath)) {
+                        $model->image_url = $filepath;
+                    }
+                }else{
+                    unset($model->image_url);
+                }
+
+                if ($model->validate() && $model->save()) {
+                    Yii::$app->session->setFlash('success', 'Banner successfully uploaded.');
+                    return $this->redirect(['index']);
+                } else {
+                    Yii::$app->response->format = Response::FORMAT_JSON;
+                    return ['errors' => $model->errors];
+                }
+            }
+            return $this->renderAjax('create', ['model' => $model]);
+        }else{
+            return $this->redirect(['index']);
         }
 
-        return $this->renderPartial('update', [
+        return $this->renderAjax('update', [
             'model' => $model,
         ]);
     }
