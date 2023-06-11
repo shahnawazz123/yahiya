@@ -38,7 +38,7 @@ use yii\widgets\ActiveForm;
    </div>         
 </div>
 <script type="text/javascript">
-    $(document).on("change", ".form-control", function(e) {
+    $(document).on("change", ".banners-search .form-control", function(e) {
         $(".page-loader-wrapper").css("background-color", "transparent").show();
         const form = $(this).parents('form').eq(0);
         const url  = form.attr("action");

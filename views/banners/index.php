@@ -36,7 +36,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <?php Modal::begin([
         'title' => '',
         'centerVertical' => false,
-        'size' => 'modal-lg',
+        'size' => 'modal-md',
         'id' => 'modal',
     ]);
     echo "<div id='modelBootsrap4Content'></div>";

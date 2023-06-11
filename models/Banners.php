@@ -33,8 +33,10 @@ class Banners extends \yii\db\ActiveRecord
         return [
             [['title', 'image_url', 'link', 'sequence_number', 'created_at', 'updated_at'], 'required'],
             [['sequence_number'], 'integer'],
+            [['sequence_number'], 'unique'],
             [['created_at', 'updated_at'], 'safe'],
-            [['title', 'image_url', 'link'], 'string', 'max' => 255],
+            [['title','link'], 'string', 'max' => 255],
+            [['image_url'], 'file', 'extensions' => ['png', 'jpg'], 'maxSize' => 5*1024*1024],
         ];
     }
 
@@ -46,7 +48,7 @@ class Banners extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'title' => 'Title',
-            'image_url' => 'Image Url',
+            'image_url' => 'Image/Url',
             'link' => 'Link',
             'sequence_number' => 'Sequence Number',
             'created_at' => 'Created At',

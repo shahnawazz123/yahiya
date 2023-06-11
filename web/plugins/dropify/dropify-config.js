@@ -2,7 +2,7 @@
     $('.dropify').dropify({
         messages: {
             default: $('.dropify').data('default-message'),
-            replace: 'Drag and drop a file or click to replace',
+            replace: 'Drag and drop a file or click to replaces',
             remove: 'Remove',
             error: 'Sorry, the file is too big'
         }

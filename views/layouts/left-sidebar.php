@@ -36,17 +36,15 @@ use yii\helpers\Url;
         <nav id="left-sidebar-nav" class="sidebar-nav">
             <ul id="main-menu" class="metismenu">
                 <li class="header">Main</li>
-                <li class="active">
+                <li>
                     <a href="#Dashboard" class="has-arrow">
                         <i class="icon-speedometer"></i>
-                        <span>Dashboard</span>
+                        <span>Menu</span>
                     </a>
                     <ul>
-                        <li><a href="/theme-dark/index.html">Dark Version</a></li>
-                        <li class="active"><a href="index.html">Light Version</a></li>
-                        <li><a href="/theme-fluid/index.html">Fluid Version</a></li>
-                        <li><a href="/theme-light/index.html">H-Menu Version</a></li>
-                        <li><a href="/theme-landing/index.html">Landing Page</a></li>
+                        <li><a href="<?= Url::to(['brands/index'])?>">Men</a></li>
+                        <li><a href="<?= Url::to(['brands/index'])?>">Women</a></li>
+                        <li><a href="<?= Url::to(['brands/index'])?>">Kids</a></li>
                     </ul>
                 </li>
                 <li class="header">App</li>

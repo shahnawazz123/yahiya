@@ -8,7 +8,9 @@ use app\models\BannersSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-
+use yii\web\UploadedFile;
+use yii\widgets\ActiveForm;
+use yii\web\Response;
 /**
  * BannersController implements the CRUD actions for Banners model.
  */
@@ -25,7 +27,7 @@ class BannersController extends Controller
                 'verbs' => [
                     'class' => VerbFilter::className(),
                     'actions' => [
-                        'delete' => ['POST'],
+                        'delete' => ['GET'],
                     ],
                 ],
             ]
@@ -71,23 +73,38 @@ class BannersController extends Controller
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return string|\yii\web\Response
      */
-    public function actionCreate()
-    {
+
+    public function actionCreate(){
         $model = new Banners();
         $model->updated_at = $model->created_at = date('Y-m-d h:i:s');
 
-        if ($this->request->isPost) {
-            if ($model->load($this->request->post()) && $model->save()) {
-                return $this->redirect(['index', 'id' => $model->id]);
-            }
-        } else {
-            $model->loadDefaultValues();
-        }
+        if (Yii::$app->request->isAjax) {
+            if (Yii::$app->request->isPost && $model->load($this->request->post())) {
+                $model->image_url = UploadedFile::getInstance($model, 'image_url');
 
-        return $this->renderPartial('create', [
-            'model' => $model,
-        ]);
+                if (!empty($model->image_url)) {
+                    $basePath = Yii::getAlias('@webroot');
+                    $filepath = '/images/banners/' . $model->image_url->baseName . '.' . $model->image_url->extension;
+
+                    if ($model->image_url->saveAs($basePath . $filepath)) {
+                        $model->image_url = $filepath;
+                    }
+                }
+
+                if ($model->validate() && $model->save()) {
+                    Yii::$app->session->setFlash('success', 'Banner successfully uploaded.');
+                    return $this->redirect(['index']);
+                } else {
+                    Yii::$app->response->format = Response::FORMAT_JSON;
+                    return ['errors' => $model->errors];
+                }
+            }
+            return $this->renderAjax('create', ['model' => $model]);
+        }else{
+            return $this->redirect(['index']);
+        }
     }
+
 
     /**
      * Updates an existing Banners model.
