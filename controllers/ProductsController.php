@@ -114,7 +114,7 @@ class ProductsController extends Controller
 
                 if (!empty($model->image_url)) {
                     $basePath = Yii::getAlias('@webroot');
-                    $filepath = '/products/banners/' . $model->image_url->baseName . '.' . $model->image_url->extension;
+                    $filepath = '/images/products/' . $model->image_url->baseName . '.' . $model->image_url->extension;
 
                     if ($model->image_url->saveAs($basePath . $filepath)) {
                         $model->image_url = $filepath;
@@ -144,6 +144,47 @@ class ProductsController extends Controller
         Yii::$app->session->setFlash('popup-success', $message);
 
         return $this->redirect(['index']);
+    }
+
+    public function actionList(){
+        $searchModel = new ProductsSearch();
+        $dataProvider = $searchModel->search($this->request->queryParams);
+        //ight/page-gallery.html
+        $result = [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider
+        ];
+
+        if (Yii::$app->request->isAjax) {
+            return $this->renderPartial('list',$result);
+        }
+        return $this->render('list',$result);
+    }
+
+    public function actionLoadNext($offset = 0){
+        $limit = 20;
+        
+        // Fetch the next 20 records using the offset and limit
+        $records = Record::find()
+            ->orderBy(['id' => SORT_ASC])
+            ->offset($offset)
+            ->limit($limit)
+            ->all();
+
+        if (!empty($records)) {
+            return $this->renderPartial('_records', ['records' => $records]);
+        } else {
+            return 'No more records';
+        }
+    }
+
+    public function actionDetail($id=1){
+        $model = $this->findModel($id);
+
+        return $this->render('detail', [
+            'model' => $model,
+            
+        ]);
     }
 
     /**

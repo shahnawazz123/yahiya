@@ -18,7 +18,10 @@ Pjax::begin(['id' => "products-pjax-container"]);
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
             'name',
-            'description:ntext',
+            [
+                'attribute' => 'description',
+                'contentOptions' => ['style' => 'white-space: normal;'],
+            ],
             'price',
             [
                 'attribute' => 'image',
