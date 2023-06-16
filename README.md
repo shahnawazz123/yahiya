@@ -4,7 +4,7 @@
     </a>
     <h1 align="center">Yii2 Yahiya Footwear Project</h1>
     <br>
-    ![Screenshot](/../screenshot.png)
+    ![Screenshot](/screenshot.png)
 </p>
 
 Yii 2 Basic Project Template is a skeleton [Yii 2](http://www.yiiframework.com/) application best for
