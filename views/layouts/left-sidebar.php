@@ -42,9 +42,9 @@ use yii\helpers\Url;
                         <span>Menu</span>
                     </a>
                     <ul>
-                        <li><a href="<?= Url::to(['brands/index'])?>">Men</a></li>
-                        <li><a href="<?= Url::to(['brands/index'])?>">Women</a></li>
-                        <li><a href="<?= Url::to(['brands/index'])?>">Kids</a></li>
+                        <li><a href="<?= Url::to(['products/list'])?>">Men</a></li>
+                        <li><a href="<?= Url::to(['products/list'])?>">Women</a></li>
+                        <li><a href="<?= Url::to(['products/list'])?>">Kids</a></li>
                     </ul>
                 </li>
                 <li class="header">App</li>
@@ -74,7 +74,7 @@ use yii\helpers\Url;
                         <span>Products</span>
                     </a>
                 </li>
-                <li class="header">UI Elements</li>
+                <li class="header">Admin Pannel</li>
                 <li>
                     <a href="#uiElements" class="has-arrow">
                         <i class="icon-diamond"></i>
@@ -87,15 +87,6 @@ use yii\helpers\Url;
                         <li><a href="ui-tabs.html">Tabs</a></li>
                         <li><a href="ui-buttons.html">Buttons</a></li>
                         <li><a href="ui-icons.html">Icons</a></li>
-                        <li><a href="ui-notifications.html">Notifications</a></li>
-                        <li><a href="ui-colors.html">Colors</a></li>
-                        <li><a href="ui-dialogs.html">Dialogs</a></li>
-                        <li><a href="ui-list-group.html">List Group</a></li>
-                        <li><a href="ui-media-object.html">Media Object</a></li>
-                        <li><a href="ui-modals.html">Modals</a></li>
-                        <li><a href="ui-nestable.html">Nestable</a></li>
-                        <li><a href="ui-progressbars.html">Progress Bars</a></li>
-                        <li><a href="ui-range-sliders.html">Range Sliders</a></li>
                     </ul>
                 </li>
                 <li>
@@ -109,10 +100,6 @@ use yii\helpers\Url;
                         <li><a href="forms-validation.html">Form Validation</a></li>
                         <li><a href="forms-wizard.html">Form Wizard</a></li>
                         <li><a href="forms-dragdropupload.html">Drag &amp; Drop Upload</a></li>
-                        <li><a href="forms-cropping.html">Image Cropping</a></li>
-                        <li><a href="forms-summernote.html">Summernote</a></li>
-                        <li><a href="forms-editors.html">CKEditor</a></li>
-                        <li><a href="forms-markdown.html">Markdown</a></li>
                     </ul>
                 </li>
                 <li>
@@ -123,10 +110,7 @@ use yii\helpers\Url;
                     <ul>
                         <li><a href="table-normal.html">Normal Tables</a></li>
                         <li><a href="table-jquery-datatable.html">Jquery Datatables</a></li>
-                        <li><a href="table-editable.html">Editable Tables</a></li>
-                        <li><a href="table-color.html">Tables Color</a></li>
-                        <li><a href="table-filter.html">Table Filter</a></li>
-                        <li><a href="table-dragger.html">Table dragger</a></li>
+                      
                     </ul>
                 </li>
                 <li>
@@ -137,10 +121,6 @@ use yii\helpers\Url;
                     <ul>
                         <li><a href="chart-c3.html">C3 Charts</a></li>
                         <li><a href="chart-morris.html">Morris</a></li>
-                        <li><a href="chart-flot.html">Flot</a></li>
-                        <li><a href="chart-chartjs.html">ChartJS</a></li>
-                        <li><a href="chart-jquery-knob.html">Jquery Knob</a></li>
-                        <li><a href="chart-sparkline.html">Sparkline Chart</a></li>
                     </ul>
                 </li>
                 <li class="header">Extra</li>
@@ -154,14 +134,6 @@ use yii\helpers\Url;
                         <li><a href="page-login.html">Login</a></li>
                         <li><a href="page-register.html">Register</a></li>
                         <li><a href="page-forgot-password.html">Forgot Password</a></li>
-                        <li><a href="page-404.html">Page 404</a></li>
-                        <li><a href="page-blank.html">Blank Page</a></li>
-                        <li><a href="page-search-results.html">Search Results</a></li>
-                        <li><a href="page-profile.html">Profile </a></li>
-                        <li><a href="page-invoices.html">Invoices </a></li>
-                        <li><a href="page-gallery.html">Image Gallery </a></li>
-                        <li><a href="page-timeline.html">Timeline</a></li>
-                        <li><a href="page-pricing.html">Pricing</a></li>
                     </ul>
                 </li>
                 <li>

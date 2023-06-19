@@ -1,67 +1,38 @@
-<?php 
-use yii\bootstrap4\Card;
-
-?>
-<div class="row">
-    <?php foreach ($dataProvider->getModels() as $product): ?>
-        <div class="col-md-4 mb-4">
-            <div class="card">
-			    <img class="card-img-top" src="<?= $product->image_url ?>" alt="<?= $product->name ?>" style="object-fit: contain;">
-			    <div class="card-body">
-			        <h5 class="card-title"><?= $product->name ?></h5>
-			        <p class="card-text"><?= $product->description ?></p>
-			         <!-- Additional product information or buttons can be added here -->
-			    </div>
-			</div>
-        </div>
-    <?php endforeach; ?>
-</div>
-<div class="row">
-    <div class="col-md-12">
-        <?= \yii\bootstrap4\LinkPager::widget([
-            'pagination' => $dataProvider->pagination,
-        ]); ?>
-    </div>
-</div>
-<!-- next load on click -->
 <?php
-/*$loadNextUrl = Url::to(['record/load-next']);
+use yii\helpers\Html;
 
-// Register JavaScript code to handle loading of next records
-$js = <<<JS
-var offset = 0;
-var limit = 20;
-
-function loadNextRecords() {
-    $.ajax({
-        url: '$loadNextUrl',
-        method: 'GET',
-        data: { offset: offset },
-        success: function(data) {
-            $('#records-container').append(data);
-            offset += limit;
-        }
-    });
-}
-
-$(document).on('click', '#load-next-btn', function() {
-    loadNextRecords();
-});
-
-$(document).ready(function() {
-    loadNextRecords();
-});
-JS;
-
-$this->registerJs($js);*/
 ?>
 
-<!-- <div class="container">
-    <h1><?php //$this->title ?></h1>
+<div class="row" id="product-container">
+    <?= $this->render('_list', ['dataProvider' => $dataProvider]); ?>
+</div>
 
-    <div id="records-container"></div>
+<?= Html::button('Load More', ['id' => 'load-more-button', 'class' => 'btn btn-primary btn-round w-25 mb-5', 'style' => 'margin-left: 35%;']) ?>
 
-    <div class="form-group">
-        <?php //Html::button('Load More', ['id' => 'load-next-btn', 'class' => 'btn btn-primary']) ?>
-    </div>
-</div> -->
+<script type="text/javascript">
+    var offset = 10; // The initial offset for fetching products
+    var limit = 9; // The number of products to fetch per request
+
+    $('#load-more-button').on('click', function() {
+        loadproducts();
+    });
+
+    function loadproducts() {
+        $.ajax({
+            url: '/products/list',
+            type: 'GET',
+            data: {
+                offset: offset,
+                limit: limit
+            },
+            success: function(response) {
+                if ($.trim(response).length > 0) {
+                    $('#product-container').append(response);
+                    offset += limit; // Increment the offset for the next request
+                } else {
+                    $('#load-more-button').prop('disabled', true).text('No more products'); // Disable the button if no more products
+                }
+            }
+        });
+    }
+</script>

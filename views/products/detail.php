@@ -20,7 +20,7 @@ $this->title = "Product Detail";
             <?php
                     $items = [
                         [
-                            'content' => Html::a(Html::img('/images/products/item-1.jpg', ['class' => 'img-thumbnail', 'alt' => 'Free html5 bootstrap 4 template']), '#', ['class' => '']),
+                            'content' => Html::a(Html::img($model->image_url, ['class' => 'img-thumbnail', 'alt' => 'Free html5 bootstrap 4 template']), '#', ['class' => '']),
                             'options' => ['class' => 'item']
                         ],
                         [
@@ -44,9 +44,9 @@ $this->title = "Product Detail";
         </div>
         <div class="col-sm-4">
             <div class="product-desc">
-                <h3>Women's Boots Shoes Maca</h3>
+                <h3><?= Html::encode($model->name); ?></h3>
                 <p class="price">
-                    <span>$68.00</span>
+                    <span><?= Html::encode($model->price); ?></span>
                     <span class="rate">
                         <i class="icon-star-full"></i>
                         <i class="icon-star-full"></i>
@@ -56,7 +56,7 @@ $this->title = "Product Detail";
                         (74 Rating)
                     </span>
                 </p>
-                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p>
+                <p><?= Html::encode($model->description); ?></p>
                 <div class="size-wrap">
                     <div class="block-26 mb-2">
                         <h4>Size</h4>

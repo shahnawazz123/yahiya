@@ -146,39 +146,22 @@ class ProductsController extends Controller
         return $this->redirect(['index']);
     }
 
-    public function actionList(){
-        $searchModel = new ProductsSearch();
-        $dataProvider = $searchModel->search($this->request->queryParams);
-        //ight/page-gallery.html
-        $result = [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider
-        ];
+    public function actionList($offset = 0){
+        $limit = 9;
+        
+        // Fetch the next 9 records using the offset and limit
+        $dataProvider = new \yii\data\ActiveDataProvider([
+            'query' => Products::find()->offset($offset)->limit($limit),
+            'pagination' => false,
+        ]);
 
         if (Yii::$app->request->isAjax) {
-            return $this->renderPartial('list',$result);
+            return $this->renderPartial('_list', ['dataProvider' => $dataProvider]);
         }
-        return $this->render('list',$result);
+        return $this->render('list', ['dataProvider' => $dataProvider]);
     }
 
-    public function actionLoadNext($offset = 0){
-        $limit = 20;
-        
-        // Fetch the next 20 records using the offset and limit
-        $records = Record::find()
-            ->orderBy(['id' => SORT_ASC])
-            ->offset($offset)
-            ->limit($limit)
-            ->all();
-
-        if (!empty($records)) {
-            return $this->renderPartial('_records', ['records' => $records]);
-        } else {
-            return 'No more records';
-        }
-    }
-
-    public function actionDetail($id=1){
+    public function actionDetail($id){
         $model = $this->findModel($id);
 
         return $this->render('detail', [
