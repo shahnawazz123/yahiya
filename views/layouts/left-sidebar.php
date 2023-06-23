@@ -28,7 +28,7 @@ use yii\helpers\Url;
                     <li><a href="app-inbox.html"><i class="icon-envelope-open"></i>Messages</a></li>
                     <li><a href="javascript:void(0);"><i class="icon-settings"></i>Settings</a></li>
                     <li class="divider"></li>
-                    <li><a href="page-login.html"><i class="icon-power"></i>Logout</a></li>
+                    <li><a href="javascript:void(0);"><i class="icon-power"></i>Logout</a></li>
                 </ul>
             </div>
             <?php //Html::a('<i class="icon-plus mr-1"></i> Create New', '#', ['class' => 'btn btn-sm btn-block btn-primary btn-round mt-3', 'title' => '']) ?>

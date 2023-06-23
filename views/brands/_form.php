@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use yii\helpers\Url;
+use app\widgets\CKEditorWidget;
 /** @author Shahnawaz Khan */
 /** @var app\models\Brands $model */
 /** @var yii\widgets\ActiveForm $form */
@@ -22,7 +23,15 @@ use yii\helpers\Url;
 		    		</div>
 		    		<div class = "body">
 		    			<?= $form->field($model, 'name')->textInput(['maxlength' => true])?>
-						<?= $form->field($model, 'description')->textarea(['rows' => 6])?>
+						<?= $form->field($model, 'description')->widget(CKEditorWidget::class, [
+							    'options' => [
+							        'rows' => 6,
+							    ],
+							    'clientOptions' => [
+							        // CKEditor client options
+							        'language' => 'en',
+							    ],
+						])?>
 
 					</div>
 				</div>	

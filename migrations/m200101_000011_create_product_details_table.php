@@ -8,7 +8,10 @@ class m200101_000011_create_product_details_table extends Migration{
             'id' => $this->primaryKey(),
             'product_id' => $this->integer()->notNull(),
             'image' => $this->string(),
-            //'price' => $this->decimal(10, 2)->notNull(),
+            'color' => $this->decimal(10, 2)->notNull(),
+            'size' => $this->decimal(10, 2)->notNull(),
+            'material' => $this->string()->null(),
+            'product_type' => $this->string()->null(),
             // Add any other columns for the product details table
         ]);
 

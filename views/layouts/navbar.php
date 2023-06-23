@@ -25,17 +25,17 @@ use yii\helpers\Html;
                     <li><a href="javascript:void(0);" class="megamenu_toggle icon-menu" title="Mega Menu">Mega</a></li>
                     <li class="dropdown">
                         <a href="javascript:void(0);" class="dropdown-toggle icon-menu" data-toggle="dropdown">
-                            <i class="icon-envelope"></i>
+                            <i class="icon-handbag"></i>
                             <span class="notification-dot bg-green">4</span>
                         </a>
                         <ul class="dropdown-menu right_chat email vivify fadeIn">
-                            <li class="header">You have 4 New eMail</li>
+                            <li class="header">You have 4 New cart</li>
                             <li>
                                 <a href="javascript:void(0);">
                                     <div class="media">
-                                        <?= Html::img('/theme-assets/images/xs/avatar4.jpg', ['class' => 'media-object', 'alt' => '']) ?>
+                                        <?= Html::img('/images/products/item-1.jpg', ['class' => 'media-object', 'alt' => '']) ?>
                                         <div class="media-body">
-                                            <span class="name">James Wert <small class="float-right">Just now</small></span>
+                                            <span class="name">James Wert <small class="float-right">Rs.999</small></span>
                                             <span class="message">Update GitHub</span>
                                         </div>
                                     </div>
@@ -44,9 +44,9 @@ use yii\helpers\Html;
                             <li>
                                 <a href="javascript:void(0);">
                                     <div class="media">
-                                        <?= Html::img('/theme-assets/images/xs/avatar1.jpg', ['class' => 'media-object', 'alt' => '']) ?>
+                                        <?= Html::img('/images/products/item-2.jpg', ['class' => 'media-object', 'alt' => '']) ?>
                                         <div class="media-body">
-                                            <span class="name">Folisise Chosielie <small class="float-right">12min ago</small></span>
+                                            <span class="name">Folisise Chosielie <small class="float-right">Rs.499</small></span>
                                             <span class="message">New Messages</span>
                                         </div>
                                     </div>
@@ -55,9 +55,9 @@ use yii\helpers\Html;
                             <li>
                                 <a href="javascript:void(0);">
                                     <div class="media">
-                                        <?= Html::img('/theme-assets/images/xs/avatar5.jpg', ['class' => 'media-object', 'alt' => '']) ?>
+                                        <?= Html::img('/images/products/item-3.jpg', ['class' => 'media-object', 'alt' => '']) ?>
                                         <div class="media-body">
-                                            <span class="name">Louis Henry <small class="float-right">38min ago</small></span>
+                                            <span class="name">Louis Henry <small class="float-right">Rs.1499</small></span>
                                             <span class="message">Design bug fix</span>
                                         </div>
                                     </div>
@@ -66,9 +66,9 @@ use yii\helpers\Html;
                             <li>
                                 <a href="javascript:void(0);">
                                     <div class="media mb-0">
-                                        <?= Html::img('/theme-assets/images/xs/avatar2.jpg', ['class' => 'media-object', 'alt' => '']) ?>
+                                        <?= Html::img('/images/products/item-4.jpg', ['class' => 'media-object', 'alt' => '']) ?>
                                         <div class="media-body">
-                                            <span class="name">Debra Stewart <small class="float-right">2hr ago</small></span>
+                                            <span class="name">Debra Stewart <small class="float-right">Rs.1499</small></span>
                                             <span class="message">Fix Bug</span>
                                         </div>
                                     </div>

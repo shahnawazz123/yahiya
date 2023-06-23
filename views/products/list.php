@@ -1,9 +1,17 @@
 <?php
 use yii\helpers\Html;
 
+$this->title = 'List of Products';
+$this->params['breadcrumbs'][] = $this->title;
 ?>
-
-<div class="row" id="product-container">
+<div class="block-header">
+    <div class="row clearfix">
+        <div class="col-md-6 col-sm-12">
+            <h2><?=  Html::encode($this->title) ?></h2>
+        </div>  
+    </div>
+</div>
+<div class="row m-auto" id="product-container">
     <?= $this->render('_list', ['dataProvider' => $dataProvider]); ?>
 </div>
 
@@ -11,7 +19,7 @@ use yii\helpers\Html;
 
 <script type="text/javascript">
     var offset = 10; // The initial offset for fetching products
-    var limit = 9; // The number of products to fetch per request
+    var limit  = 9; // The number of products to fetch per request
 
     $('#load-more-button').on('click', function() {
         loadproducts();
