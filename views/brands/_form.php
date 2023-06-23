@@ -29,7 +29,7 @@ use app\widgets\CKEditorWidget;
 							    ],
 							    'clientOptions' => [
 							        // CKEditor client options
-							        'language' => 'en',
+							        //'language' => 'en',
 							    ],
 						])?>
 

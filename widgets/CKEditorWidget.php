@@ -23,9 +23,6 @@ class CKEditorWidget extends InputWidget{
 
     public function run(){
         
-
-        // Render the textarea
-        //echo Html::textarea($this->options['id'], $this->options['value'], $this->options);
         if ($this->hasModel()) {
             echo Html::activeTextarea($this->model, $this->attribute, $this->options);
         } else {
@@ -34,11 +31,15 @@ class CKEditorWidget extends InputWidget{
     }
 
     protected function registerClientScript(){
+        $id = Json::encode($this->options['id']);
+        $ckEditorCustom = str_replace('-', 'ckEditorCustom', $this->options['id']) ;
+        $clientOptions  = $this->getClientOptions();
+        
         $js = '
-                CKEDITOR.replace('.Json::encode($this->options['id']).', '.Json::encode($this->clientOptions).');
-                var $ckEditorCustom = CKEDITOR.instances[' . Json::encode($this->options['id']) . '];
-                    $ckEditorCustom.on("change", function() {
-                        $ckEditorCustom.updateElement();
+                CKEDITOR.replace('.$id.', '.$clientOptions.');
+                var $'.$ckEditorCustom.' = CKEDITOR.instances['.$id.'];
+                    $'.$ckEditorCustom.'.on("change", function() {
+                        $'.$ckEditorCustom.'.updateElement();
                 });
             ';
         $this->getView()->registerJs($js, View::POS_READY);
@@ -53,6 +54,24 @@ class CKEditorWidget extends InputWidget{
             $this->options['id'] = $this->getId();
         }
     }
+
+    public function getClientOptions(){
+        $defaultOptions = [
+                'toolbar' => [
+                    ['ajaxsave'],
+                    ['Bold', 'Italic', 'Underline', '-', 'NumberedList', 'BulletedList', '-', 'Link', 'Unlink'],
+                    ['Cut', 'Copy', 'Paste', 'PasteText'],
+                    ['Undo', 'Redo', '-', 'RemoveFormat'],
+                    ['TextColor', 'BGColor'],
+                    ['Maximize'],['Styles','Format','Font','FontSize']
+                ],
+            'height' => '200px', // Modify this according to your requirements
+        ];
+        if (!empty($this->clientOptions)) {
+            $defaultOptions = array_merge($defaultOptions, $this->clientOptions);
+        }
+        return Json::encode($defaultOptions);
+    }
 }
 
 /* how to use in view ->
@@ -65,8 +84,9 @@ class CKEditorWidget extends InputWidget{
         'rows' => 6,
     ],
     'clientOptions' => [
-        // CKEditor client options
-        'language' => 'en',
+        'toolbar' => 'full', // Customize the toolbar options
+        'height' => '300px', // Set the height of the editor
+        // Add any additional options you need
     ],
 ]) ?>
 
