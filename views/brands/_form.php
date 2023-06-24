@@ -3,7 +3,7 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use yii\helpers\Url;
-use app\widgets\CKEditorWidget;
+use app\widgets\SummernoteWidget;
 /** @author Shahnawaz Khan */
 /** @var app\models\Brands $model */
 /** @var yii\widgets\ActiveForm $form */
@@ -17,13 +17,13 @@ use app\widgets\CKEditorWidget;
 			    'id' => 'brands-form',
 			    'enableAjaxValidation' => true, // Enable AJAX validation
 		    ]); ?>
-		    	<div class = "card">
-		    		<div class = "header">
+		    	<div class="card">
+		    		<div class="header">
 		    			<h2 class="text-capitalize">brands Form</h2>
 		    		</div>
-		    		<div class = "body">
+		    		<div class="body">
 		    			<?= $form->field($model, 'name')->textInput(['maxlength' => true])?>
-						<?= $form->field($model, 'description')->widget(CKEditorWidget::class, [
+						<?= $form->field($model, 'description')->widget(SummernoteWidget::class, [
 							    'options' => [
 							        'rows' => 6,
 							    ],
