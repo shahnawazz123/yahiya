@@ -1,6 +1,5 @@
 <?php
-
-namespace app\widgets;
+namespace app\assets;
 
 use yii\web\AssetBundle;
 /**
@@ -8,13 +7,21 @@ use yii\web\AssetBundle;
  * @since 2.0.46
  */
 class DataTableAsset extends AssetBundle{
-    public $sourcePath = '@bower/datatables.net';
+    public $basePath = '@webroot';
+    public $baseUrl = '@web/plugins/jquery-datatable/';
     public $css = [
-        'css/jquery.dataTables.min.css',
+        'dataTables.bootstrap4.min.css',
+        'fixedeader/dataTables.fixedcolumns.bootstrap4.min.css',
+        'fixedeader/dataTables.fixedheader.bootstrap4.min.css',
     ];
     public $js = [
-        'js/jquery.dataTables.min.js',
+        'buttons/dataTables.buttons.min.js',
+        'buttons/buttons.bootstrap4.min.js',
+        'buttons/buttons.colVis.min.js',
+        'buttons/buttons.html5.min.js',
+        'buttons/buttons.print.min.js',
     ];
+
     public $depends = [
         'yii\web\YiiAsset',
         'yii\bootstrap4\BootstrapAsset',
