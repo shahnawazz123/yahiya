@@ -28,9 +28,27 @@ $config = [
         ],
         'mailer' => [
             'class' => \yii\symfonymailer\Mailer::class,
+            'transport' => [
+                'class' => 'Swift_SmtpTransport',
+                'host' => 'smtp.office365.com',
+                'username' => 'shahnawaz@yahiya.com',
+                'password' => 'yahiya@yahiya!2821!',
+                'port' => '587',
+                'encryption' => 'tls',
+                'streamOptions' => [
+                    'ssl' => [
+                        'allow_self_signed' => true,
+                        'verify_peer' => false,
+                        'verify_peer_name' => false,
+                    ],
+                ],
+            ],
+            'messageConfig' => [
+                'from' => ['shahnawaz@yahiya.com' => 'Yahiya'],
+            ],
             'viewPath' => '@app/mail',
             // send all mails to a file by default.
-            'useFileTransport' => true,
+            'useFileTransport' => false,
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
@@ -59,6 +77,9 @@ $config = [
                     'jsOptions' => ['position' => \yii\web\View::POS_HEAD],
                 ],
             ],
+        ],
+        'spreadsheet' => [
+            'class' => 'app\components\PhpSpreadsheetComponent',
         ],
     ],
     'params' => $params,
